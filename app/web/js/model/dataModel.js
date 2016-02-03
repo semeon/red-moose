@@ -5,6 +5,7 @@ function DataModel() {
 	var lsIdPrefix = "blue-moose-";
 	var config;
 	var dataSummary = {};
+	var dataRecords = {};
 
 	this.init = function(conf) {
 		config = conf;
@@ -39,43 +40,48 @@ function DataModel() {
 			var record = sprintRawData[i];
 			// Check record's relevance
 			var recProject = record[config.getFieldMap().project];
-			if (recProject == config.getProjectId()) SaveRecord(record, reportData);
+			if (recProject == config.getProjectId()) {
+				SaveRecord(id, record, reportData);
+			}
 		}
 		dataSummary[id] = reportData;
 	}
 
-	function SaveRecord(record, reportData) {
-		// Logged time
-		var recLoggedTime = record[config.getFieldMap().timeLogged];
+	function SaveRecord(id, record, reportData) {
 
-		// Logged user
-		var recUser = record[config.getFieldMap().user];
-		if(!reportData.byPerson[recUser]) reportData.byPerson[recUser] = 0;
+		if(!dataRecords[id]) dataRecords[id] = [];
+		var dataRecord = {};
+		dataRecord.project = record[config.getFieldMap().project];;
+		dataRecord.ticketType = record[config.getFieldMap().ticketType];
+		dataRecord.ticketId = record[config.getFieldMap().ticketId];
+		dataRecord.ticketTitle = record[config.getFieldMap().ticketTitle];
+		dataRecord.dateTime = record[config.getFieldMap().dateTime];
+		dataRecord.date = moment(dataRecord.dateTime, "YYYY-MM-DD HH:mm").format("YYYY-MM-DD");
+		dataRecord.user = record[config.getFieldMap().user];
+		dataRecord.timeLogged = record[config.getFieldMap().timeLogged];
+		dataRecord.workType = DefineWorkType(record);
 
-		// Logged date
-		var recDateTime = record[config.getFieldMap().dateTime]; // 2015-11-17 04:51
-		var recDate = moment(recDateTime, "YYYY-MM-DD HH:mm").format("YYYY-MM-DD");
-		if(!reportData.byDay[recDate]) reportData.byDay[recDate] = 0;
+		if(!reportData.byPerson[dataRecord.user]) reportData.byPerson[dataRecord.user] = 0;
+		if(!reportData.byDay[dataRecord.date ]) reportData.byDay[dataRecord.date ] = 0;
+		if(!reportData.byType[dataRecord.workType]) reportData.byType[dataRecord.workType] = 0;
 
-		// Work Type
-		var workType = DefineWorkType(record);
-		if(!reportData.byType[workType]) reportData.byType[workType] = 0;
+		if(!reportData.byDayPerson[dataRecord.date]) reportData.byDayPerson[dataRecord.date] = {};
+		if(!reportData.byDayPerson[dataRecord.date][dataRecord.user]) reportData.byDayPerson[dataRecord.date][dataRecord.user] = 0;
 
-		// ByDay ByPerson
-		if(!reportData.byDayPerson[recDate]) reportData.byDayPerson[recDate] = {};
-		if(!reportData.byDayPerson[recDate][recUser]) reportData.byDayPerson[recDate][recUser] = 0;
+		if(!reportData.byPersonDay[dataRecord.user]) reportData.byPersonDay[dataRecord.user] = {};
+		if(!reportData.byPersonDay[dataRecord.user][dataRecord.date]) reportData.byPersonDay[dataRecord.user][dataRecord.date] = 0;
 
-		// ByPerson ByDay
-		if(!reportData.byPersonDay[recUser]) reportData.byPersonDay[recUser] = {};
-		if(!reportData.byPersonDay[recUser][recDate]) reportData.byPersonDay[recUser][recDate] = 0;
 
-		// Save
-		reportData.total += recLoggedTime;
-		reportData.byPerson[recUser] += recLoggedTime;
-		reportData.byDay[recDate] += recLoggedTime;
-		reportData.byType[workType] += recLoggedTime;
-		reportData.byDayPerson[recDate][recUser] += recLoggedTime;
-		reportData.byPersonDay[recUser][recDate] += recLoggedTime;
+		// Save Data Record
+		dataRecords[id].push(dataRecord);
+
+		// Save Summary
+		reportData.total += dataRecord.timeLogged;
+		reportData.byPerson[dataRecord.user] += dataRecord.timeLogged;
+		reportData.byDay[dataRecord.date] += dataRecord.timeLogged;
+		reportData.byType[dataRecord.workType] += dataRecord.timeLogged;
+		reportData.byDayPerson[dataRecord.date][dataRecord.user] += dataRecord.timeLogged;
+		reportData.byPersonDay[dataRecord.user][dataRecord.date] += dataRecord.timeLogged;
 	}
 
 	function DefineWorkType(record) {
