@@ -53,10 +53,10 @@
 
 
   <!-- General Libs 
-  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdn.rawgit.com/jprichardson/string.js/master/dist/string.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="https://cdn.rawgit.com/jprichardson/string.js/master/dist/string.min.js"></script>
+  -->
 
   <!-- React 0.14 
   -->
@@ -74,6 +74,10 @@
         babel: 'https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js'
       }
     });
+
+    System.import('https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js');
+    System.import('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+    System.import('https://cdn.rawgit.com/jprichardson/string.js/master/dist/string.min.js');
 
     System.import('js/app.js');
   </script>
