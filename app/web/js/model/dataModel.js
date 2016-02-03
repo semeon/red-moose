@@ -4,17 +4,7 @@ function DataModel() {
 
 	var lsIdPrefix = "blue-moose-";
 	var config;
-
-
-	// var rawData = {};
 	var dataSummary = {};
-
-
-	// dataSummary.total = {};
-	// dataSummary.byPerson = {};
-	// dataSummary.byDay = {};
-	// dataSummary.byDayPerson = {};
-	// dataSummary.byType = {};
 
 	this.init = function(conf) {
 		config = conf;
@@ -26,7 +16,6 @@ function DataModel() {
 		UpdateSummary(id, sprintRawData);
 	}
 
-
 	this.logData = function(id) {
 		var summary = dataSummary[id];
 		console.dir("Report ID: " + id);
@@ -34,8 +23,7 @@ function DataModel() {
 		console.dir("");
 	}
 
-
-	// Private
+	// Private Members
 
 	function UpdateSummary(id, sprintRawData) {
 		dataSummary[id] = {};
@@ -48,50 +36,46 @@ function DataModel() {
 		reportData.byPersonDay = {};
 
 		for (var i=0; i<sprintRawData.length-1; i++) { 
-
 			var record = sprintRawData[i];
-
 			// Check record's relevance
 			var recProject = record[config.getFieldMap().project];
-
-			if (recProject == config.getProjectId()) {
-				// Logged time
-				var recLoggedTime = record[config.getFieldMap().timeLogged];
-
-				// Logged user
-				var recUser = record[config.getFieldMap().user];
-				if(!reportData.byPerson[recUser]) reportData.byPerson[recUser] = 0;
-
-				// Logged date
-				var recDateTime = record[config.getFieldMap().dateTime]; // 2015-11-17 04:51
-				var recDate = moment(recDateTime, "YYYY-MM-DD HH:mm").format("YYYY-MM-DD");
-				if(!reportData.byDay[recDate]) reportData.byDay[recDate] = 0;
-
-				// Work Type
-				var workType = DefineWorkType(record);
-				if(!reportData.byType[workType]) reportData.byType[workType] = 0;
-
-				// ByDay ByPerson
-				if(!reportData.byDayPerson[recDate]) reportData.byDayPerson[recDate] = {};
-				if(!reportData.byDayPerson[recDate][recUser]) reportData.byDayPerson[recDate][recUser] = 0;
-
-
-				// ByPerson ByDay
-				if(!reportData.byPersonDay[recUser]) reportData.byPersonDay[recUser] = {};
-				if(!reportData.byPersonDay[recUser][recDate]) reportData.byPersonDay[recUser][recDate] = 0;
-
-
-				// Save
-				reportData.total += recLoggedTime;
-				reportData.byPerson[recUser] += recLoggedTime;
-				reportData.byDay[recDate] += recLoggedTime;
-				reportData.byType[workType] += recLoggedTime;
-				reportData.byDayPerson[recDate][recUser] += recLoggedTime;
-				reportData.byPersonDay[recUser][recDate] += recLoggedTime;
-			}
+			if (recProject == config.getProjectId()) SaveRecord(record, reportData);
 		}
-
 		dataSummary[id] = reportData;
+	}
+
+	function SaveRecord(record, reportData) {
+		// Logged time
+		var recLoggedTime = record[config.getFieldMap().timeLogged];
+
+		// Logged user
+		var recUser = record[config.getFieldMap().user];
+		if(!reportData.byPerson[recUser]) reportData.byPerson[recUser] = 0;
+
+		// Logged date
+		var recDateTime = record[config.getFieldMap().dateTime]; // 2015-11-17 04:51
+		var recDate = moment(recDateTime, "YYYY-MM-DD HH:mm").format("YYYY-MM-DD");
+		if(!reportData.byDay[recDate]) reportData.byDay[recDate] = 0;
+
+		// Work Type
+		var workType = DefineWorkType(record);
+		if(!reportData.byType[workType]) reportData.byType[workType] = 0;
+
+		// ByDay ByPerson
+		if(!reportData.byDayPerson[recDate]) reportData.byDayPerson[recDate] = {};
+		if(!reportData.byDayPerson[recDate][recUser]) reportData.byDayPerson[recDate][recUser] = 0;
+
+		// ByPerson ByDay
+		if(!reportData.byPersonDay[recUser]) reportData.byPersonDay[recUser] = {};
+		if(!reportData.byPersonDay[recUser][recDate]) reportData.byPersonDay[recUser][recDate] = 0;
+
+		// Save
+		reportData.total += recLoggedTime;
+		reportData.byPerson[recUser] += recLoggedTime;
+		reportData.byDay[recDate] += recLoggedTime;
+		reportData.byType[workType] += recLoggedTime;
+		reportData.byDayPerson[recDate][recUser] += recLoggedTime;
+		reportData.byPersonDay[recUser][recDate] += recLoggedTime;
 	}
 
 	function DefineWorkType(record) {
@@ -116,6 +100,4 @@ function DataModel() {
 		} 
 		return type;
 	}
-
-
 }
