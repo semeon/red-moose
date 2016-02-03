@@ -3,10 +3,12 @@ export var config = new Config();
 function Config() {
 
 	var csvFilePath = "data/";
+	var projectId = "Ratchet Health";
+
 	
 	var fieldCaptionMap = {};
 	fieldCaptionMap.project = "Project";
-	fieldCaptionMap.ticektType = "Type";
+	fieldCaptionMap.ticketType = "Type";
 	fieldCaptionMap.ticketId = "Key";
 	fieldCaptionMap.ticketTitle = "Title";
 	fieldCaptionMap.dateTime = "Date";
@@ -29,8 +31,12 @@ function Config() {
 		return csvFilePath;
 	}
 
-	this.getFieldCaptionMap = function() {
+	this.getFieldMap = function() {
 		return fieldCaptionMap;
+	}
+
+	this.getProjectId = function() {
+		return projectId;
 	}
 
 }
