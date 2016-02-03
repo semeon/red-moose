@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Red Moose</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles.css" type="text/css" />
+
+</head>
+
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" 
+                class="navbar-toggle collapsed" 
+                data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Red Moose</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="#">Home</a></li>
+          <li class="active"><a href="#sprint">Sprint Report</a></li>
+          <li><a href="#trends">Trends</a></li>
+          <li><a href="#quality">Quality Metric</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 col-md-3 col-lg-2"  id="data-panel">
+
+          </div>
+
+          <div class="col-sm-9 col-md-9 col-lg-10"  id="graph-panel">
+          </div>
+        </div>
+
+      </div>
+  </div><!-- /.container -->
+
+
+  <!-- General Libs 
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/jprichardson/string.js/master/dist/string.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
+
+  <!-- React 0.14 
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.min.js"></script>
+
+  <script src="libs/systemjs/system.js"></script>
+  <script>
+    // set our baseURL reference path
+    System.config({
+      baseURL: '/',
+      transpiler: 'babel',
+      babelOptions: {},
+      map: {
+        babel: 'https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js'
+      }
+    });
+
+    System.import('js/app.js');
+  </script>
+
+
+</body>
+</html>
