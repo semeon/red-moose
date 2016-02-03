@@ -1,11 +1,12 @@
 import {config} from "/js/config/config.js";
-import {CsvController} from "/js/csv/csvController.js";
+import {csvController} from "/js/csv/csvController.js";
 import {dataModel} from "/js/model/dataModel.js";
+import {ReportController} from "/js/reports/reportController.js";
 
 
 dataModel.init(config);
 
-var csvController = new CsvController(config.getCsvFilePath());
+csvController.init(config.getCsvFilePath());
 csvController.parseFiles(config.getCsvFileNames(), callback);
 
 function callback(fileId, result) {
