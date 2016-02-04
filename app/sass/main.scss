@@ -31,8 +31,8 @@ body
 .navbar-inverse .navbar-nav>.active>a:focus,
 .navbar-inverse .navbar-nav>.active>a:hover
 {
-	background-color: $primary-color-light;	
-	color: $primary-text-color;
+	background-color: $accent-color;	
+	color: $primary-color-text;
 }
 
 .navbar-inverse .navbar-nav>li>a,

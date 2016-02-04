@@ -24,8 +24,8 @@ body {
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:focus,
 .navbar-inverse .navbar-nav > .active > a:hover {
-  background-color: #F8BBD0;
-  color: #212121; }
+  background-color: #FF9800;
+  color: #FFFFFF; }
 
 .navbar-inverse .navbar-nav > li > a,
 .navbar-inverse .navbar-nav > li > a:active,
@@ -34,7 +34,7 @@ body {
   color: #F8BBD0; }
 
 .overflowScroll {
-  overflow: scroll; }
+  overflow: auto; }
 
 .ticketTitle {
   max-width: 200px; }
