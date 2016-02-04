@@ -1,36 +1,49 @@
-import {RawReportTable} from "/js/reports/components/rawReportView.jsx";
+import {RawReportView} from "/js/reports/components/rawReportView.jsx";
+import {OverviewReportView} from "/js/reports/components/overviewReportView.jsx";
 import {ErrorMessage} from "/js/reports/components/errorView.jsx";
 
-export function ReportController(reportType, dataSource) {
+export function ReportController(type, dataSource) {
 	var self = this;
 
-	var activeReportData;
-	var reportView;
-	var reportType = reportType;
+	var reportType = type;
 	var data = dataSource;
+	var mountNodeId = "report-body";
 
 	this.build = function() {
 		console.dir("Build Report called: " + reportType + " for " + data.id);
-		console.dir(data.records);
-
-		ReactDOM.render(
-		  <RawReportTable records={data.records} report={data.id}/>,
-		  document.getElementById('raw-report-'+data.id)
-		);
-
-		// if (data.records.length > 0) {
-			
-		// } else {
-		// 	ReactDOM.render(
-		// 	  <ErrorMessage report={data.id}/>,
-		// 	  document.getElementById('raw-report-'+data.id)
-		// 	);
-		// }
-
+		RenderReport(reportType);
 	}
 
-	this.getReportType = function() {
+	this.getType = function() {
 		return reportType;
+	}
+
+	function RenderReport(type) {
+		switch(type) {
+			case "overview":
+				ReactDOM.render(
+					<OverviewReportView data={data} report={data.id}/>,
+					document.getElementById(mountNodeId)
+				);
+			break;
+
+			case "byDay":
+				ReactDOM.render(
+					<OverviewReportView data={data} report={data.id}/>,
+					document.getElementById(mountNodeId)
+				);
+			break;
+
+			case "raw":
+				ReactDOM.render(
+					<RawReportView records={data.records} report={data.id}/>,
+					document.getElementById(mountNodeId)
+				);
+			break;
+
+			default:
+			// default code block
+		}
 	}
 
 }

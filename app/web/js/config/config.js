@@ -28,7 +28,7 @@ function Config() {
 	}
 
 	this.getDefaultReportType = function() {
-		return reportTypes[2];
+		return reportTypes[0];
 	}
 
 	this.getDefaultReport = function() {

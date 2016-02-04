@@ -6,18 +6,22 @@ import {uiController} from "/js/ui/uiController.js";
 
 dataModel.init(config);
 
-var reports = {};
+var reportControllers = {};
 for (var i=0; i<config.getReportTypes().length; i++ ) {
 	var type = config.getReportTypes()[i];
 	
 	var defRepId = config.getDefaultReport();
 	var dataSource = dataModel.getData(defRepId);
 
-	reports[type] = new ReportController(type, dataSource);
+	reportControllers[type] = new ReportController(type, dataSource);
 	if (type == config.getDefaultReportType()) {
-		uiController.setCurrentView(reports[type]);
+		uiController.setCurrentView(reportControllers[type]);
 	}	
 }
+
+console.dir(reportControllers);
+uiController.setReportViews(reportControllers);
+
 
 csvController.init(config.getCsvFilePath());
 csvController.parseFiles(config.getCsvFileNames(), onCsvLoad);
@@ -26,7 +30,6 @@ uiController.showReportNavigation();
 
 function onCsvLoad(id, result) {
 	console.dir("== onCsvLoad == " + id);
-	console.dir("defaultReport: " + config.getDefaultReport());
 	dataModel.saveReportData(id, result.data);
 	if (id == config.getDefaultReport()) {
 		uiController.showReport();

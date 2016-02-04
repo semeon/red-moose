@@ -1,4 +1,4 @@
-export var RawReportTable = React.createClass({
+export var RawReportView = React.createClass({
 
   getInitialState: function() {
     return {data:   this.props.records};
