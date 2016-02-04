@@ -1,5 +1,5 @@
-import {RawReportTable} from "/js/reports/components/rawReportView.js";
-import {ErrorMessage} from "/js/reports/components/errorView.js";
+import {RawReportTable} from "/js/reports/components/rawReportView.jsx";
+import {ErrorMessage} from "/js/reports/components/errorView.jsx";
 
 export function ReportController(reportType, dataSource) {
 	var self = this;
@@ -27,6 +27,10 @@ export function ReportController(reportType, dataSource) {
 		// 	);
 		// }
 
+	}
+
+	this.getReportType = function() {
+		return reportType;
 	}
 
 }

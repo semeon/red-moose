@@ -4,33 +4,31 @@ import {dataModel} from "/js/model/dataModel.js";
 import {ReportController} from "/js/reports/reportController.js";
 import {uiController} from "/js/ui/uiController.js";
 
-var defaultReport = config.getDefaultReport();
-
 dataModel.init(config);
 
-
-
 var reports = {};
-for (var i=0; i<dataModel.getReportIds().length; i++ ) {
-	var id = dataModel.getReportIds()[i];
-	var dataSource = dataModel.getData()[id];
+for (var i=0; i<config.getReportTypes().length; i++ ) {
+	var type = config.getReportTypes()[i];
+	
+	var defRepId = config.getDefaultReport();
+	var dataSource = dataModel.getData(defRepId);
 
-	reports[id] = {};
-	reports[id].raw = new ReportController("raw", dataSource);
-	if (id == defaultReport) {
-		uiController.setCurrentView(reports[id].raw);
+	reports[type] = new ReportController(type, dataSource);
+	if (type == config.getDefaultReportType()) {
+		uiController.setCurrentView(reports[type]);
 	}	
 }
 
 csvController.init(config.getCsvFilePath());
 csvController.parseFiles(config.getCsvFileNames(), onCsvLoad);
 
+uiController.showReportNavigation();
 
 function onCsvLoad(id, result) {
 	console.dir("== onCsvLoad == " + id);
-	console.dir("defaultReport: " + defaultReport);
+	console.dir("defaultReport: " + config.getDefaultReport());
 	dataModel.saveReportData(id, result.data);
-	if (id == defaultReport) {
+	if (id == config.getDefaultReport()) {
 		uiController.showReport();
 	}
 }

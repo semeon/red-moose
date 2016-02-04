@@ -22,8 +22,10 @@ function DataModel() {
 		}
 	}
 
-	this.getData = function() {
-		return data;
+	this.getData = function(id) {
+		var result = data;
+		if (id) result = data[id];
+		return result;
 	}
 
 	this.getReportIds = function() {
