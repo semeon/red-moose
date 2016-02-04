@@ -33,4 +33,10 @@ body {
 .navbar-inverse .navbar-nav > li > a:hover {
   color: #F8BBD0; }
 
+.overflowScroll {
+  overflow: scroll; }
+
+.ticketTitle {
+  max-width: 200px; }
+
 /*# sourceMappingURL=styles.css.map */

@@ -2,6 +2,8 @@ export var dataModel = new DataModel();
 
 function DataModel() {
 
+	var self = this;
+
 	var lsIdPrefix = "blue-moose-";
 	var config;
 	var dataSummary = {};
@@ -11,10 +13,18 @@ function DataModel() {
 		config = conf;
 	}
 
+	this.getDataRecords = function(id) {
+
+		var result = dataRecords;
+		if (id) result = dataRecords[id];
+
+		return result;
+	}
+
 	this.saveReportData = function(id, sprintRawData) {
 		// rawData[id] = sprintRawData;
-
 		UpdateSummary(id, sprintRawData);
+		// self.logData(id);
 	}
 
 	this.logData = function(id) {

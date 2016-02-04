@@ -1,5 +1,4 @@
 @import "palette";
-
 /*
 $primary-color-dark:   #C2185B
 $primary-color:        #E91E63
@@ -44,3 +43,8 @@ body
 	color: $primary-color-light;
 }
 
+.overflowScroll {
+	overflow: auto;
+}
+
+@import "rawReport";
