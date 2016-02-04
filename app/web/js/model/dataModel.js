@@ -2,23 +2,48 @@ export var dataModel = new DataModel();
 
 function DataModel() {
 
+	var self = this;
+
 	var lsIdPrefix = "blue-moose-";
 	var config;
-	var dataSummary = {};
-	var dataRecords = {};
+
+	var dataIds = [];
+	var data = {};
 
 	this.init = function(conf) {
 		config = conf;
+		for (var i=0; i<config.getCsvFileNames().length; i++) {
+			var id = config.getCsvFileNames()[i];
+			dataIds.push(id);
+			data[id] = {};
+			data[id].id = id;
+			data[id].summary = {};
+			data[id].records = [];
+		}
+	}
+
+	this.getData = function(id) {
+		var result = data;
+		if (id) result = data[id];
+		return result;
+	}
+
+	this.getReportIds = function() {
+		return dataIds;
+	}
+
+	this.getDataRecords = function(id) {
+		return data[id].records;
 	}
 
 	this.saveReportData = function(id, sprintRawData) {
 		// rawData[id] = sprintRawData;
-
 		UpdateSummary(id, sprintRawData);
+		// self.logData(id);
 	}
 
 	this.logData = function(id) {
-		var summary = dataSummary[id];
+		var summary = data[id].summary;
 		console.dir("Report ID: " + id);
 		console.dir(summary);
 		console.dir("");
@@ -27,7 +52,7 @@ function DataModel() {
 	// Private Members
 
 	function UpdateSummary(id, sprintRawData) {
-		dataSummary[id] = {};
+		data[id].summary = {};
 		var reportData = {};
 		reportData.total = 0;
 		reportData.byPerson = {};
@@ -44,12 +69,12 @@ function DataModel() {
 				SaveRecord(id, record, reportData);
 			}
 		}
-		dataSummary[id] = reportData;
+		data[id].summary = reportData;
 	}
 
 	function SaveRecord(id, record, reportData) {
 
-		if(!dataRecords[id]) dataRecords[id] = [];
+		if(!data[id].records) data[id].records = [];
 		var dataRecord = {};
 		dataRecord.project = record[config.getFieldMap().project];;
 		dataRecord.ticketType = record[config.getFieldMap().ticketType];
@@ -73,7 +98,7 @@ function DataModel() {
 
 
 		// Save Data Record
-		dataRecords[id].push(dataRecord);
+		data[id].records.push(dataRecord);
 
 		// Save Summary
 		reportData.total += dataRecord.timeLogged;

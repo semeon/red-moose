@@ -2,6 +2,11 @@ export var config = new Config();
 
 function Config() {
 
+	var csvReports = [];
+	csvReports.push("report-03.csv");
+	csvReports.push("2015-11-17.csv");
+	csvReports.push("2015-12-01.csv");
+
 	var csvFilePath = "data/";
 	var projectId = "Ratchet Health";
 
@@ -16,12 +21,20 @@ function Config() {
 	fieldCaptionMap.timeLogged = "Time Spent (h)";
 	fieldCaptionMap.comment = "Comment";
 
+	var reportTypes = ["overview", "byDay", "raw"];
 
-	var csvReports = [];
-	csvReports.push("2015-11-17.csv");
-	csvReports.push("2015-12-01.csv");
-	csvReports.push("report-03.csv");
+	this.getReportTypes = function() {
+		return reportTypes;
+	}
 
+	this.getDefaultReportType = function() {
+		return reportTypes[0];
+	}
+
+	this.getDefaultReport = function() {
+		var result = csvReports[csvReports.length-1];
+		return result;
+	}
 
 	this.getCsvFileNames = function() {
 		return csvReports;

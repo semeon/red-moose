@@ -1,6 +1,12 @@
-export function CsvController(path) {
+export var csvController = new CsvController();
 
-	var filePath = path;
+function CsvController(path) {
+
+	var filePath;
+
+	this.init = function(path) {
+		filePath = path;
+	}
 
 	this.parseFiles = function(fileNames, callback) {
 		for (var i=0; i< fileNames.length; i++) {
