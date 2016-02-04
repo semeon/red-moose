@@ -1,18 +1,17 @@
 export var RawReportTable = React.createClass({
+
+  getInitialState: function() {
+    return {data:   this.props.records};
+  },
+
+  componentDidMount: function() {
+  },
+
+
   render: function() {
     var rows = [];
     var lastCategory = null;
     this.props.records.forEach(function(record) {
-
-	// fieldCaptionMap.project = "Project";
-	// fieldCaptionMap.ticketType = "Type";
-	// fieldCaptionMap.ticketId = "Key";
-	// fieldCaptionMap.ticketTitle = "Title";
-	// fieldCaptionMap.dateTime = "Date";
-	// fieldCaptionMap.user = "Username";
-	// fieldCaptionMap.timeLogged = "Time Spent (h)";
-	// fieldCaptionMap.comment = "Comment";
-
     	var row = 
     		<tr>
 				<td><small>{record.project}</small></td>
@@ -52,26 +51,3 @@ export var RawReportTable = React.createClass({
     );
   }
 });
-
-// export var RawReportTable = React.createClass({
-//   render: function() {
-
-//   	console.dir("-----------------------------");
-//   	console.dir(this.props.data);
-
-//     var rows = [];
-//     this.props.records.forEach(
-//     	function(record) {
-//         	rows.push(<tr>La la la<tr/>);
-//     	}
-//     );
-	
-//     return (
-// 		<div className="table-responsive">
-// 		  <table className="table table-condensed">
-// 			{rows}
-// 		  </table>
-// 		</div>
-//     );
-//   }
-// });

@@ -5,7 +5,7 @@ function Config() {
 	var csvReports = [];
 	csvReports.push("2015-11-17.csv");
 	csvReports.push("2015-12-01.csv");
-	csvReports.push("report-03.csv");
+	// csvReports.push("report-03.csv");
 
 	var csvFilePath = "data/";
 	var projectId = "Ratchet Health";
@@ -22,6 +22,10 @@ function Config() {
 	fieldCaptionMap.comment = "Comment";
 
 
+	this.getDefaultReport = function() {
+		var result = csvReports[csvReports.length-1];
+		return result;
+	}
 
 	this.getCsvFileNames = function() {
 		return csvReports;
