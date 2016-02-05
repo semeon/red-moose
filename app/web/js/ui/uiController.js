@@ -1,8 +1,6 @@
 import {ReportNavigation} from "/js/ui/components/reportNavigation.jsx";
 
-export var uiController = new UiController();
-
-function UiController() {
+export function UiController() {
 	var self = this;
 	var currentType = "";
 	var currentViewController = {};

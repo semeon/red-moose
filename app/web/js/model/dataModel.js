@@ -1,6 +1,4 @@
-export var dataModel = new DataModel();
-
-function DataModel() {
+export function DataModel() {
 
 	var self = this;
 
@@ -19,6 +17,10 @@ function DataModel() {
 			data[id].id = id;
 			data[id].summary = {};
 			data[id].records = [];
+			data[id].meta = {};
+			data[id].meta.users = [];
+			data[id].meta.dates = [];
+
 		}
 	}
 
@@ -96,6 +98,8 @@ function DataModel() {
 		if(!reportData.byPersonDay[dataRecord.user]) reportData.byPersonDay[dataRecord.user] = {};
 		if(!reportData.byPersonDay[dataRecord.user][dataRecord.date]) reportData.byPersonDay[dataRecord.user][dataRecord.date] = 0;
 
+		// Same Meta
+		SaveMeta(id, dataRecord);
 
 		// Save Data Record
 		data[id].records.push(dataRecord);
@@ -107,6 +111,14 @@ function DataModel() {
 		reportData.byType[dataRecord.workType] += dataRecord.timeLogged;
 		reportData.byDayPerson[dataRecord.date][dataRecord.user] += dataRecord.timeLogged;
 		reportData.byPersonDay[dataRecord.user][dataRecord.date] += dataRecord.timeLogged;
+	}
+
+	function SaveMeta(id, dataRecord) {
+		var user = dataRecord.user;
+		var date = dataRecord.date;
+
+		if ( data[id].meta.users.indexOf(user) < 0 ) data[id].meta.users.push(user);
+		if ( data[id].meta.dates.indexOf(date) < 0 ) data[id].meta.dates.push(date);
 	}
 
 	function DefineWorkType(record) {

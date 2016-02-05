@@ -10,7 +10,6 @@ export var RawReportView = React.createClass({
 
   render: function() {
     var rows = [];
-    var lastCategory = null;
     this.props.records.forEach(function(record) {
     	var row = 
     		<tr>

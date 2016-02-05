@@ -1,6 +1,4 @@
-export var csvController = new CsvController();
-
-function CsvController(path) {
+export function CsvController() {
 
 	var filePath;
 

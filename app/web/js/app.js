@@ -1,39 +1,61 @@
-import {config} from "/js/config/config.js";
-import {csvController} from "/js/csv/csvController.js";
-import {dataModel} from "/js/model/dataModel.js";
+import {Config} from "/js/config/config.js";
+import {CsvController} from "/js/csv/csvController.js";
+import {DataModel} from "/js/model/dataModel.js";
+import {UiController} from "/js/ui/uiController.js";
 import {ReportController} from "/js/reports/reportController.js";
-import {uiController} from "/js/ui/uiController.js";
 
-dataModel.init(config);
 
-var reportControllers = {};
-for (var i=0; i<config.getReportTypes().length; i++ ) {
-	var type = config.getReportTypes()[i];
+export var app = new App();
+
+function App() {
+
+	var app = this;
+	var dataModel =  new DataModel();
+	var uiController = new UiController();
+	var reportControllers = {};
+	var config = new Config();
+	var csvController = new CsvController();
 	
-	var defRepId = config.getDefaultReport();
-	var dataSource = dataModel.getData(defRepId);
+	this.init = function() {
 
-	reportControllers[type] = new ReportController(type, dataSource);
-	if (type == config.getDefaultReportType()) {
-		uiController.setCurrentView(reportControllers[type]);
-	}	
-}
+		dataModel.init(config);
 
-console.dir(reportControllers);
-uiController.setReportViews(reportControllers);
+		for (var i=0; i<config.getReportTypes().length; i++ ) {
+			var type = config.getReportTypes()[i];
+			
+			var defRepId = config.getDefaultReport();
+			var dataSource = dataModel.getData(defRepId);
+
+			reportControllers[type] = new ReportController(type, dataSource);
+			if (type == config.getDefaultReportType()) {
+				uiController.setCurrentView(reportControllers[type]);
+			}	
+		}
+
+		uiController.setReportViews(reportControllers);
+		csvController.init(config.getCsvFilePath());
+	}
 
 
-csvController.init(config.getCsvFilePath());
-csvController.parseFiles(config.getCsvFileNames(), onCsvLoad);
+	this.start = function() {
+		csvController.parseFiles(config.getCsvFileNames(), onCsvLoad);
+		uiController.showReportNavigation();
+	}
 
-uiController.showReportNavigation();
 
-function onCsvLoad(id, result) {
-	console.dir("== onCsvLoad == " + id);
-	dataModel.saveReportData(id, result.data);
-	if (id == config.getDefaultReport()) {
-		uiController.showReport();
+	// Private
+	function onCsvLoad(id, result) {
+		console.dir("== onCsvLoad == " + id);
+		dataModel.saveReportData(id, result.data);
+		if (id == config.getDefaultReport()) {
+			uiController.showReport();
+		}
 	}
 }
+
+
+
+
+
 
 

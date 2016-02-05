@@ -1,6 +1,4 @@
-export var config = new Config();
-
-function Config() {
+export function Config() {
 
 	var csvReports = [];
 	csvReports.push("report-03.csv");
