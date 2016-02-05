@@ -20,7 +20,6 @@ export function DataModel() {
 			data[id].meta = {};
 			data[id].meta.users = [];
 			data[id].meta.dates = [];
-
 		}
 	}
 
@@ -39,9 +38,9 @@ export function DataModel() {
 	}
 
 	this.saveReportData = function(id, sprintRawData) {
-		// rawData[id] = sprintRawData;
 		UpdateSummary(id, sprintRawData);
-		// self.logData(id);
+		data[id].meta.dates.sort();
+		data[id].meta.users.sort();
 	}
 
 	this.logData = function(id) {

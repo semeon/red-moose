@@ -26,7 +26,7 @@ export function Config() {
 	}
 
 	this.getDefaultReportType = function() {
-		return reportTypes[0];
+		return reportTypes[1];
 	}
 
 	this.getDefaultReport = function() {
