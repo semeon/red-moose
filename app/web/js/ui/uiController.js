@@ -9,8 +9,6 @@ export function UiController(config, a, rc) {
 
 	this.renderReportNavigation = function() {
 		ReactDOM.unmountComponentAtNode(document.getElementById(reportNavNodeId));
-
-
 		ReactDOM.render(
 		  <ReportNavigation 
 		  	reportType={reportController.getType()} tabClick={SwitchToView} 

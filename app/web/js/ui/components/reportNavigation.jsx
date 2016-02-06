@@ -43,10 +43,7 @@ export var ReportNavigation = React.createClass({
       sourceIdListItems.push(node);
     });
 
-
-
     return (
-
       <ul className="nav nav-pills">
         <li role="presentation" className={overviewClass}>
           <a href="#" onClick={this.overviewClick}>Overview</a>
