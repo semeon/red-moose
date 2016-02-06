@@ -10,38 +10,20 @@ $secondary-text-color:
 $divider-color:       
 */
 body {
-  margin-top: 60px;
+  margin-top: 80px;
   background-color: #CFD8DC; }
 
 #main-wrapper {
   background-color: white;
   padding-top: 20px;
-  border-radius: 10px; }
-
-.navbar.navbar-inverse {
-  background-color: #455A64; }
-
-.navbar-inverse {
-  border-color: #455A64; }
-
-.navbar-header .navbar-brand {
-  color: #FFFFFF; }
-
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:focus,
-.navbar-inverse .navbar-nav > .active > a:hover {
-  background-color: #FF9800;
-  color: #FFFFFF; }
-
-.navbar-inverse .navbar-nav > li > a,
-.navbar-inverse .navbar-nav > li > a:active,
-.navbar-inverse .navbar-nav > li > a:focus,
-.navbar-inverse .navbar-nav > li > a:hover {
-  color: #CFD8DC; }
+  border-radius: 5px; }
 
 .overflowScroll {
   overflow: auto; }
 
+/*
+@import "navBar";
+*/
 .ticketTitle {
   max-width: 200px; }
 

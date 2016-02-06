@@ -29,7 +29,7 @@ export function Config() {
 		return reportTypes[1];
 	}
 
-	this.getDefaultReport = function() {
+	this.getDefaultDataSourceID = function() {
 		var result = csvReports[csvReports.length-1];
 		return result;
 	}

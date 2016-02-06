@@ -10,45 +10,39 @@ export var app = new App();
 function App() {
 
 	var app = this;
-	var dataModel =  new DataModel();
-	var uiController = new UiController();
-	var reportControllers = {};
 	var config = new Config();
+	var dataModel =  new DataModel();
 	var csvController = new CsvController();
+	var selectedDataSource = {};
+
+	var uiController = {};
+	var reportController = {};
 	
 	this.init = function() {
-
 		dataModel.init(config);
-
-		for (var i=0; i<config.getReportTypes().length; i++ ) {
-			var type = config.getReportTypes()[i];
-			
-			var defRepId = config.getDefaultReport();
-			var dataSource = dataModel.getData(defRepId);
-
-			reportControllers[type] = new ReportController(type, dataSource);
-			if (type == config.getDefaultReportType()) {
-				uiController.setCurrentView(reportControllers[type]);
-			}	
-		}
-
-		uiController.setReportViews(reportControllers);
+		selectedDataSource = dataModel.getData(config.getDefaultDataSourceID());
+		reportController = new ReportController(selectedDataSource, config.getDefaultReportType());
+		uiController = new UiController(config, app, reportController);
 		csvController.init(config.getCsvFilePath());
 	}
 
 
 	this.start = function() {
+		uiController.renderReportNavigation();
 		csvController.parseFiles(config.getCsvFileNames(), onCsvLoad);
-		uiController.showReportNavigation();
 	}
 
+	this.selectDataSource = function(id) {
+		selectedDataSource = dataModel.getData(id);
+		reportController.setDataSource(selectedDataSource);
+	}
 
 	// Private
 	function onCsvLoad(id, result) {
 		console.dir("== onCsvLoad == " + id);
 		dataModel.saveReportData(id, result.data);
-		if (id == config.getDefaultReport()) {
-			uiController.showReport();
+		if (id == config.getDefaultDataSourceID()) {
+			uiController.renderReport();
 		}
 	}
 }

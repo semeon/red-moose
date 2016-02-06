@@ -1,41 +1,42 @@
 import {ReportNavigation} from "/js/ui/components/reportNavigation.jsx";
 
-export function UiController() {
+export function UiController(config, a, rc) {
 	var self = this;
-	var currentType = "";
-	var currentViewController = {};
-	var reportControllers = {};
+	var app = a;
+	var dataSourceIDs = config.getCsvFileNames();
+	var reportController = rc;
+	var reportNavNodeId = "report-nav";
 
-	this.setCurrentView = function(repController) {
-		currentViewController = repController;
-		currentType = currentViewController.getType();
-	}
+	this.renderReportNavigation = function() {
+		ReactDOM.unmountComponentAtNode(document.getElementById(reportNavNodeId));
 
-	this.setReportViews = function(controllers) {
-		reportControllers = controllers;
-	}
 
-	this.showReportNavigation = function() {
-		ReactDOM.unmountComponentAtNode(document.getElementById('report-nav'));
 		ReactDOM.render(
-		  <ReportNavigation reportType={currentType} tabClick={SwitchToReport}/>,
-		  document.getElementById('report-nav')
+		  <ReportNavigation 
+		  	reportType={reportController.getType()} tabClick={SwitchToView} 
+		  	reportSources={dataSourceIDs} currentSource={reportController.getDataSourceId()} sourceTabClick={SwitchToSource}/>,
+		  document.getElementById(reportNavNodeId)
 		);
 	}
 
-	this.showReport = function(repController) {
-		if (!repController) repController = currentViewController;
-		repController.build();
+	this.renderReport = function() {
+		reportController.render();
 	}
 
-	function SwitchToReport(type) {
-		console.dir("SwitchToReport called with param: " + type)
-		self.setCurrentView(reportControllers[type]);
-		self.showReportNavigation();
-		self.showReport();
-
-
-		console.dir("currentType: " + currentType);
+	function SwitchToView(type) {
+		console.dir("SwitchToView called with param: " + type);
+		reportController.setType(type);
+		self.renderReportNavigation();
+		self.renderReport();
 	}
+
+	function SwitchToSource(id) {
+		console.dir("SwitchToSource called with param: " + id);
+		app.selectDataSource(id);
+		reportController
+		self.renderReportNavigation();
+		self.renderReport();
+	}
+
 
 }

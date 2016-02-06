@@ -14,6 +14,7 @@ export function DataModel() {
 			var id = config.getCsvFileNames()[i];
 			dataIds.push(id);
 			data[id] = {};
+			data[id].status = "pending";
 			data[id].id = id;
 			data[id].summary = {};
 			data[id].records = [];
@@ -41,6 +42,7 @@ export function DataModel() {
 		UpdateSummary(id, sprintRawData);
 		data[id].meta.dates.sort();
 		data[id].meta.users.sort();
+		if (data[id].summary.total) data[id].status = "loaded";
 	}
 
 	this.logData = function(id) {
