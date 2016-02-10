@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"dataModel"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
 				"con",
 				"console"
 			],
@@ -39,6 +47,62 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/web/index.html",
+			"settings":
+			{
+				"buffer_size": 3891,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/sass/main.scss",
+			"settings":
+			{
+				"buffer_size": 472,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/sass/navBar.scss",
+			"settings":
+			{
+				"buffer_size": 572,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/web/js/config/config.js",
+			"settings":
+			{
+				"buffer_size": 1103,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/web/js/model/dataModel.js",
+			"settings":
+			{
+				"buffer_size": 4414,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/web/js/app.js",
+			"settings":
+			{
+				"buffer_size": 1372,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/web/js/ui/uiController.js",
+			"settings":
+			{
+				"buffer_size": 1121,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -47,10 +111,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 142.0,
-		"last_filter": "Package Control: ins",
+		"height": 400.0,
+		"last_filter": "Package Control: ",
 		"selected_items":
 		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
 			[
 				"Package Control: ins",
 				"Package Control: Install Package"
@@ -126,13 +194,9 @@
 			[
 				"pack",
 				"Package Control: Install Package"
-			],
-			[
-				"Package Control: ",
-				"Package Control: Discover Packages"
 			]
 		],
-		"width": 475.0
+		"width": 457.0
 	},
 	"console":
 	{
@@ -155,10 +219,54 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/semeon/XZProjects/red-moose"
+		"/Users/semeon/XZProjects/red-moose",
+		"/Users/semeon/XZProjects/red-moose/app",
+		"/Users/semeon/XZProjects/red-moose/app/sass",
+		"/Users/semeon/XZProjects/red-moose/app/web",
+		"/Users/semeon/XZProjects/red-moose/app/web/css",
+		"/Users/semeon/XZProjects/red-moose/app/web/js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/model",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/ui",
+		"/Users/semeon/XZProjects/red-moose/app/web/libs"
 	],
 	"file_history":
 	[
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/reportController.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components/reportNavigation.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/errorView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/rawReportView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/overviewReportView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/sass/navBar.scss",
+		"/Users/semeon/XZProjects/red-moose/app/sass/reportNav.scss",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReportView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/sass/main.scss",
+		"/Users/semeon/XZProjects/red-moose/app/sass/palette.sass",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/main.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/csv/csvController.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/model/dataModel.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/reportNavigaton.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/rawReportView.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/errorView.js",
+		"/Users/semeon/XZProjects/red-moose/app/sass/rawReport.scss",
+		"/Users/semeon/XZProjects/red-moose/app/web/css/styles.css",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/config/config.js",
+		"/Users/semeon/XZProjects/red-moose/.gitignore",
+		"/Users/semeon/XZProjects/red-moose/app/web/data/report-01.csv",
+		"/Users/semeon/XZProjects/red-moose/app/web/data/data.csv",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/csvController/csvController.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/data/data.js",
+		"/Users/semeon/XZProjects/red-moose/web/index.html",
+		"/Users/semeon/XZProjects/red-moose/web/js/app.js",
+		"/Users/semeon/XZProjects/red-moose/web/css/styles.css",
+		"/Users/semeon/XZProjects/red-moose/sass/main.scss",
+		"/Users/semeon/XZProjects/red-moose/sass/palette.sass",
+		"/Users/semeon/XZProjects/red-moose/web/css/main.css",
+		"/Users/semeon/XZProjects/red-moose/web/css/palette.css",
+		"/Users/semeon/XZProjects/red-moose/web/css/palette (1).css",
+		"/Users/semeon/XZProjects/red-moose/web/css/palette.css.map",
 		"/Users/semeon/Dev/wbs_chart/web/js/page/pageController.js",
 		"/Users/semeon/Dev/wbs_chart/web/js/drawing/model/dataModel.js",
 		"/Users/semeon/Dev/wbs_chart/web/js/page/components/GraphPanel.js",
@@ -252,42 +360,11 @@
 		"/Users/semeon/Desktop/PM FUNCTIONS.txt",
 		"/Users/semeon/Desktop/PM FUNCTIONS",
 		"/PM FUNCTIONS",
-		"/Users/semeon/Desktop/MBO_ticket_2478739",
-		"/Users/semeon/Desktop/logo1200x1200-01.svg",
-		"/Users/semeon/Desktop/API_examples.txt",
-		"/Users/semeon/ping_log.txt",
-		"/Users/semeon/Desktop/register_confirm_email.html",
-		"/Users/semeon/Desktop/Sample text message",
-		"/Users/semeon/Dev/Foos_draw/index.html",
-		"/Users/semeon/Dev/Foos_draw/draw.js",
-		"/Users/semeon/Dev/angularTasks/index.html",
-		"/Users/semeon/Dev/angularTasks/temp.html",
-		"/Users/semeon/Desktop/BioShock Mouse Fix.bat",
-		"/Users/semeon/Dist/Adobe CS3/serial.txt",
-		"/Users/semeon/Dev/Ionic/myproject/www/templates/tab-account.html",
-		"/Users/semeon/Dev/Ionic/myproject/www/templates/tab-dash.html",
-		"/Users/semeon/Dev/test-app/hello/www/index.html",
-		"/Users/semeon/Dev/tab_filter/public/javascripts/services/ngAjax.js",
-		"/Users/semeon/Dev/tab_filter/public/javascripts/ngApp.js",
-		"/Users/semeon/Dev/tab_filter/public/stylesheets/style.css",
-		"/Users/semeon/Dev/tab_filter/routes/data.js",
-		"/Users/semeon/Dev/tab_filter/public/javascripts/ngController.js",
-		"/Users/semeon/Dev/tab_filter/public/javascripts/controllers/ngList.js",
-		"/Users/semeon/Dev/tab_filter/public/javascripts/COMMIT_EDITMSG.COMMIT_EDITMSG",
-		"/Users/semeon/Dev/tab_filter/package.json",
-		"/Users/semeon/Dev/tab_filter/app.js",
-		"/Users/semeon/Library/Application Support/Sublime Text 3/Packages/User/Git.sublime-settings",
-		"/Users/semeon/Library/Application Support/Sublime Text 3/Packages/Git/Git.sublime-settings",
-		"/Users/semeon/Dev/tab_filter/node_modules/ejs/.gitmodules",
-		"/Users/semeon/Dev/tab_filter/node_modules/jade/node_modules/monocle/node_modules/readdirp/examples/grep.js",
-		"/Users/semeon/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
-		"/Users/semeon/Library/Application Support/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
-		"/Users/semeon/Library/Preferences/muCommander/preferences.xml",
-		"/Users/semeon/Library/Preferences/muCommander/action_keymap.xml"
+		"/Users/semeon/Desktop/MBO_ticket_2478739"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 46.0
 	},
 	"find_in_files":
 	{
@@ -302,6 +379,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"currentViewController",
+			"dataRecords",
+			"dataSummary",
+			"dataRecord",
+			"rawDataRecord",
+			"rawDataRecords",
 			"node.w",
 			"RectNode",
 			"subTreeWidth",
@@ -465,8 +548,211 @@
 	"groups":
 	[
 		{
+			"selected": 5,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/web/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3891,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								523,
+								523
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/sass/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 472,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								361,
+								361
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/sass/navBar.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 572,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								572,
+								572
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/web/js/config/config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1103,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								699,
+								678
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 43.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/web/js/model/dataModel.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								944,
+								918
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 486.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/web/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1142,
+								1142
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 170.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/web/js/ui/uiController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1121,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								386,
+								386
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1875,7 +2161,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 217.0,
+	"side_bar_width": 261.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
