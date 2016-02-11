@@ -73,7 +73,7 @@ export var ByDayReportTeamTableBody = React.createClass({
           <td colSpan="12"></td>
         </tr>
 
-        <tr>
+        <tr className="tableSubHeader">
           <th>Team: {this.props.team}</th>
           {dailyTotals}
           <th>{totalHours()}</th>          

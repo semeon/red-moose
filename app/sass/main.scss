@@ -32,3 +32,12 @@ body
 
 @import "reportNav";
 @import "rawReport";
+
+.tableHeader th {
+	background-color: #9e9e9e;
+	color: white;
+}
+
+.tableSubHeader th {
+	background-color: #eeeeee;
+}

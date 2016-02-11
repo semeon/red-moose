@@ -29,9 +29,9 @@ export var RawReportView = React.createClass({
     	<div>
 	    	<h3>Report: {this.props.report}</h3>
 	    	<div className="table-responsive">
-		      <table className="table table-condensed">
+		      <table className="table table-condensed table-bordered">
 		        <thead>
-		          <tr>
+		          <tr className="tableHeader">
 					<th>Project</th>
 					<th>Date/Time</th>
 					<th>Ticket ID</th>

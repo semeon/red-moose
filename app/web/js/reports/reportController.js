@@ -1,5 +1,5 @@
 import {RawReportView} 		from "/js/reports/components/rawReportView.jsx";
-import {ByDayReportView} 	from "/js/reports/components/byDayReportView.jsx";
+import {ByDayReportView} 	from "/js/reports/components/byDayReport/byDayReportView.jsx";
 import {OverviewReportView} from "/js/reports/components/overviewReportView.jsx";
 import {ErrorMessage} 		from "/js/reports/components/errorView.jsx";
 

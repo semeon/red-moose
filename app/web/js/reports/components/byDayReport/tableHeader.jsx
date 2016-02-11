@@ -48,17 +48,17 @@ export var ByDayReportTeableHeader = React.createClass({
 
     return (
       <thead>
-        <tr>
+        <tr className="tableHeader">
           <th> </th>
           {dateHeaders}
           <th> </th>
         </tr>
-        <tr>
+        <tr className="tableHeader">
           <th> </th>
           {weekDayHeaders}
           <th><center><small>Total</small></center></th>
         </tr>
-        <tr>
+        <tr className="tableHeader">
           <th>Daily Total</th>
           {dailyTotals}
           <th>{totalHours()}</th>
