@@ -3,12 +3,13 @@ import {ByDayReportView} 	from "/js/reports/components/byDayReportView.jsx";
 import {OverviewReportView} from "/js/reports/components/overviewReportView.jsx";
 import {ErrorMessage} 		from "/js/reports/components/errorView.jsx";
 
-export function ReportController(dataSource, type) {
+export function ReportController(dataSource, type, conf) {
 	var self = this;
 
 	var reportType = type;
 	var data = dataSource;
 	var mountNodeId = "report-body";
+	var config = conf;
 
 	this.render = function() {
 		console.dir("Render Report called: " + reportType + " for " + data.id);
@@ -47,7 +48,7 @@ export function ReportController(dataSource, type) {
 
 			case "byDay":
 				ReactDOM.render(
-					<ByDayReportView data={data} report={data.id}/>,
+					<ByDayReportView data={data} report={data.id} config={config}/>,
 					document.getElementById(mountNodeId)
 				);
 			break;

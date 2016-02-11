@@ -21,6 +21,29 @@ export function Config() {
 
 	var reportTypes = ["overview", "byDay", "raw"];
 
+	var subteamNames = ["Dev", "QA", "UX/UI", "Other"];
+
+	var subteams = {};
+	subteams["Dev"] = ["Albert Zhang", "Charles Chen", "Colin Chen", "Dennis Yan", "Michael Zhao", "Sky Wang", "Thomas Cai"];
+	subteams["QA"] = ["Lilith Zhang", "Sandy Chen", "Edith Sun"];
+	subteams["UX/UI"] = ["Claire Lu"];
+
+	this.defineTeamByUser = function(user) {
+		var team = "Other";
+
+		for (var i=0; i<subteamNames.length; i++) {
+			var subteamName = subteamNames[i];
+			if (subteamName!="Other") {
+				if( subteams[subteamName].indexOf(user) > -1 ) team = subteamName;
+			}
+		}
+		return team;		
+	}
+
+	this.getSubteamNames = function() {
+		return subteamNames;
+	}
+
 	this.getReportTypes = function() {
 		return reportTypes;
 	}

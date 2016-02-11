@@ -21,7 +21,7 @@ function App() {
 	this.init = function() {
 		dataModel.init(config);
 		selectedDataSource = dataModel.getData(config.getDefaultDataSourceID());
-		reportController = new ReportController(selectedDataSource, config.getDefaultReportType());
+		reportController = new ReportController(selectedDataSource, config.getDefaultReportType(), config);
 		uiController = new UiController(config, app, reportController);
 		csvController.init(config.getCsvFilePath());
 	}

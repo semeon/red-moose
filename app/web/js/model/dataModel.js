@@ -21,6 +21,8 @@ export function DataModel() {
 			data[id].meta = {};
 			data[id].meta.users = [];
 			data[id].meta.dates = [];
+			data[id].meta.teams = config.getSubteamNames();
+			data[id].meta.teamMembers = {};
 		}
 	}
 
@@ -59,10 +61,13 @@ export function DataModel() {
 		var reportData = {};
 		reportData.total = 0;
 		reportData.byPerson = {};
+		reportData.byTeam = {};
+		reportData.byTeamDay = {};
 		reportData.byDay = {};
 		reportData.byType = {};
 		reportData.byDayPerson = {};
 		reportData.byPersonDay = {};
+
 
 		for (var i=0; i<sprintRawData.length-1; i++) { 
 			var record = sprintRawData[i];
@@ -86,11 +91,21 @@ export function DataModel() {
 		dataRecord.dateTime = record[config.getFieldMap().dateTime];
 		dataRecord.date = moment(dataRecord.dateTime, "YYYY-MM-DD HH:mm").format("YYYY-MM-DD");
 		dataRecord.user = record[config.getFieldMap().user];
+		dataRecord.team = config.defineTeamByUser(dataRecord.user);
 		dataRecord.timeLogged = record[config.getFieldMap().timeLogged];
 		dataRecord.workType = DefineWorkType(record);
 
+
+
 		if(!reportData.byPerson[dataRecord.user]) reportData.byPerson[dataRecord.user] = 0;
-		if(!reportData.byDay[dataRecord.date ]) reportData.byDay[dataRecord.date ] = 0;
+		
+		if(!reportData.byTeam[dataRecord.team]) reportData.byTeam[dataRecord.team] = 0;
+
+		if(!reportData.byTeamDay[dataRecord.team]) reportData.byTeamDay[dataRecord.team] = {};
+		if(!reportData.byTeamDay[dataRecord.team][dataRecord.date]) reportData.byTeamDay[dataRecord.team][dataRecord.date] = 0;
+
+		if(!reportData.byDay[dataRecord.date]) reportData.byDay[dataRecord.date] = 0;
+		
 		if(!reportData.byType[dataRecord.workType]) reportData.byType[dataRecord.workType] = 0;
 
 		if(!reportData.byDayPerson[dataRecord.date]) reportData.byDayPerson[dataRecord.date] = {};
@@ -108,6 +123,8 @@ export function DataModel() {
 		// Save Summary
 		reportData.total += dataRecord.timeLogged;
 		reportData.byPerson[dataRecord.user] += dataRecord.timeLogged;
+		reportData.byTeam[dataRecord.team] += dataRecord.timeLogged;
+		reportData.byTeamDay[dataRecord.team][dataRecord.date] += dataRecord.timeLogged;
 		reportData.byDay[dataRecord.date] += dataRecord.timeLogged;
 		reportData.byType[dataRecord.workType] += dataRecord.timeLogged;
 		reportData.byDayPerson[dataRecord.date][dataRecord.user] += dataRecord.timeLogged;
@@ -117,9 +134,13 @@ export function DataModel() {
 	function SaveMeta(id, dataRecord) {
 		var user = dataRecord.user;
 		var date = dataRecord.date;
+		var team = dataRecord.team;
 
 		if ( data[id].meta.users.indexOf(user) < 0 ) data[id].meta.users.push(user);
 		if ( data[id].meta.dates.indexOf(date) < 0 ) data[id].meta.dates.push(date);
+
+		if ( !data[id].meta.teamMembers[team] ) data[id].meta.teamMembers[team] = [];
+		if ( data[id].meta.teamMembers[team].indexOf(user) < 0 ) data[id].meta.teamMembers[team].push(user);
 	}
 
 	function DefineWorkType(record) {
