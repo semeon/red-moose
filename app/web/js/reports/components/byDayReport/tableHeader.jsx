@@ -19,7 +19,7 @@ export var ByDayReportTeableHeader = React.createClass({
 
       // Date Headers
         var dateMonthDay = moment(date, "YYYY-MM-DD").format("MMM, Do");
-        var node = <th><center><small>{dateMonthDay}</small></center></th>;
+        var node = <th><center><small>{dateMonthDay} {weekday}</small></center></th>;
         dateHeaders.push(node);
 
       // Weekday Headers
@@ -32,7 +32,8 @@ export var ByDayReportTeableHeader = React.createClass({
         if(!val) val = 0;
         val = val.toFixed(2);
 
-        node = <th><center><small>{val}</small></center></th>;
+
+        node = <td><center><small>{val}</small></center></td>;
         dailyTotals.push(node);
 
     });
@@ -59,9 +60,9 @@ export var ByDayReportTeableHeader = React.createClass({
           <th><center><small>Total</small></center></th>
         </tr>
         <tr className="tableHeader">
-          <th>Daily Total</th>
+          <td>Daily Total</td>
           {dailyTotals}
-          <th>{totalHours()}</th>
+          <td>{totalHours()}</td>
         </tr>
       </thead>
 

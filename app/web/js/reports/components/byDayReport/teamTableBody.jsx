@@ -33,15 +33,12 @@ export var ByDayReportTeamTableBody = React.createClass({
     var userRows = [];
     
     this.props.data.meta.users.forEach(function(user) {
-
       if( self.props.data.meta.teamMembers[self.props.team].indexOf(user) > -1 ) {
-
         var total = self.props.data.summary.byPerson[user];
         if(!total) total = 0;
         total = total.toFixed(2);
         
         var totalNode = <th><center><small>{total}</small></center></th>;
- 
         var row = 
           <tr>
             <th><small>{user}</small></th>
@@ -50,7 +47,7 @@ export var ByDayReportTeamTableBody = React.createClass({
           </tr>;
         userRows.push(row);
       }
-
+    });
 
     function usersLogByDay(user) {
       var usersLogs = [];
@@ -58,19 +55,24 @@ export var ByDayReportTeamTableBody = React.createClass({
         var val = self.props.data.summary.byPersonDay[user][date];
         if(!val) val = 0;
         val = val.toFixed(2);
-        var node = <td><center><small>{val}</small></center></td>;
+
+        var className = "";
+        if (val >= 6) className = "success";
+        if (val > 8) className = "warning";
+        if (val >= 10) className = "danger";
+
+        var node = <td className={className}><center><small>{val}</small></center></td>;
         usersLogs.push(node);
       });
       return usersLogs;
     }
 
-
-    });
+    var numberOfColumns = this.props.data.meta.dates.length + 2;
 
     return (
       <tbody>
         <tr>
-          <td colSpan="12"></td>
+          <td colSpan={numberOfColumns}></td>
         </tr>
 
         <tr className="tableSubHeader">
