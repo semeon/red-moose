@@ -53,6 +53,13 @@ export function ReportController(dataSource, type, conf) {
 				);
 			break;
 
+			case "workTypes":
+				ReactDOM.render(
+					<OverviewReportView data={data} report={data.id}/>,
+					document.getElementById(mountNodeId)
+				);
+			break;
+
 			case "raw":
 				ReactDOM.render(
 					<RawReportView records={data.records} report={data.id}/>,

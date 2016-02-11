@@ -1,4 +1,4 @@
-import {ReportNavigation} from "/js/ui/components/reportNavigation.jsx";
+import {ReportNavigation} from "/js/ui/components/reportNavigation/reportNavigation.jsx";
 
 export function UiController(config, a, rc) {
 	var self = this;

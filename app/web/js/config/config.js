@@ -19,7 +19,7 @@ export function Config() {
 	fieldCaptionMap.timeLogged = "Time Spent (h)";
 	fieldCaptionMap.comment = "Comment";
 
-	var reportTypes = ["overview", "byDay", "raw"];
+	var reportTypes = ["overview", "byDay", "workTypes", "raw"];
 
 	var subteamNames = ["Dev", "QA", "UX/UI", "Other"];
 
@@ -49,7 +49,7 @@ export function Config() {
 	}
 
 	this.getDefaultReportType = function() {
-		return reportTypes[1];
+		return reportTypes[0];
 	}
 
 	this.getDefaultDataSourceID = function() {
