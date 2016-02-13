@@ -63,6 +63,7 @@ export function DataModel() {
 		reportData.byPerson = {};
 		reportData.byTeam = {};
 		reportData.byTeamDay = {};
+		reportData.byTeamType = {};
 		reportData.byDay = {};
 		reportData.byType = {};
 		reportData.byDayPerson = {};
@@ -104,6 +105,10 @@ export function DataModel() {
 		if(!reportData.byTeamDay[dataRecord.team]) reportData.byTeamDay[dataRecord.team] = {};
 		if(!reportData.byTeamDay[dataRecord.team][dataRecord.date]) reportData.byTeamDay[dataRecord.team][dataRecord.date] = 0;
 
+		if(!reportData.byTeamType[dataRecord.team]) reportData.byTeamType[dataRecord.team] = {};
+		if(!reportData.byTeamType[dataRecord.team][dataRecord.workType]) reportData.byTeamType[dataRecord.team][dataRecord.workType] = 0;
+
+
 		if(!reportData.byDay[dataRecord.date]) reportData.byDay[dataRecord.date] = 0;
 		
 		if(!reportData.byType[dataRecord.workType]) reportData.byType[dataRecord.workType] = 0;
@@ -125,6 +130,7 @@ export function DataModel() {
 		reportData.byPerson[dataRecord.user] += dataRecord.timeLogged;
 		reportData.byTeam[dataRecord.team] += dataRecord.timeLogged;
 		reportData.byTeamDay[dataRecord.team][dataRecord.date] += dataRecord.timeLogged;
+		reportData.byTeamType[dataRecord.team][dataRecord.workType] += dataRecord.timeLogged;
 		reportData.byDay[dataRecord.date] += dataRecord.timeLogged;
 		reportData.byType[dataRecord.workType] += dataRecord.timeLogged;
 		reportData.byDayPerson[dataRecord.date][dataRecord.user] += dataRecord.timeLogged;

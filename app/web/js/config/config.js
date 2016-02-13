@@ -23,6 +23,17 @@ export function Config() {
 
 	var subteamNames = ["Dev", "QA", "UX/UI", "Other"];
 
+	var workTypes = [	"Story", 
+						"Improvement", 
+						"Task", 
+						"Bug", 
+						"Regression Testing", 
+						"Testing Automation", 
+						"Release Preparation",
+						"Design Task",
+						"Overhead"
+						];
+
 	var subteams = {};
 	subteams["Dev"] = ["Albert Zhang", "Charles Chen", "Colin Chen", "Dennis Yan", "Michael Zhao", "Sky Wang", "Thomas Cai"];
 	subteams["QA"] = ["Lilith Zhang", "Sandy Chen", "Edith Sun"];
@@ -41,7 +52,11 @@ export function Config() {
 	}
 
 	this.getSubteamNames = function() {
-		return subteamNames;
+		return subteams;
+	}
+
+	this.getWorkTypes = function() {
+		return workTypes;
 	}
 
 	this.getReportTypes = function() {
@@ -49,7 +64,7 @@ export function Config() {
 	}
 
 	this.getDefaultReportType = function() {
-		return reportTypes[0];
+		return reportTypes[2];
 	}
 
 	this.getDefaultDataSourceID = function() {

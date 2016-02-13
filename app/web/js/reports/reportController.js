@@ -1,6 +1,8 @@
+import {OverviewReportView} 	from "/js/reports/components/overviewReportView.jsx";
+import {ByDayReportView} 		from "/js/reports/components/byDayReport/byDayReportView.jsx";
+import {WorkTypesReportView} 	from "/js/reports/components/workTypesReport/workTypesReportView.jsx";
+
 import {RawReportView} 		from "/js/reports/components/rawReportView.jsx";
-import {ByDayReportView} 	from "/js/reports/components/byDayReport/byDayReportView.jsx";
-import {OverviewReportView} from "/js/reports/components/overviewReportView.jsx";
 import {ErrorMessage} 		from "/js/reports/components/errorView.jsx";
 
 export function ReportController(dataSource, type, conf) {
@@ -55,7 +57,7 @@ export function ReportController(dataSource, type, conf) {
 
 			case "workTypes":
 				ReactDOM.render(
-					<OverviewReportView data={data} report={data.id}/>,
+					<WorkTypesReportView data={data} report={data.id} config={config}/>,
 					document.getElementById(mountNodeId)
 				);
 			break;

@@ -22,7 +22,7 @@ export var ByDayReportView = React.createClass({
     }
     
     return (
-      <div>
+      <div class="container-fluid">
         <h3>Report: {this.props.report}</h3>
         <div className="table-responsive">
           <table className="table table-condensed table-bordered">
