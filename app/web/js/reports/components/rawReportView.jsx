@@ -20,7 +20,7 @@ export var RawReportView = React.createClass({
 				<td><small>{record.workType}</small></td>
 				<td className="overflowScroll ticketTitle"><small>{record.ticketTitle}</small></td>
 				<td><small>{record.user}</small></td>
-				<td><small>{record.timeLogged}</small></td>
+				<td className="right"><small>{record.timeLogged}</small></td>
 				<td><small>{record.comment}</small></td>
     		</tr>;
 		rows.push(row);

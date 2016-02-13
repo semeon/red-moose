@@ -79,6 +79,8 @@ export function DataModel() {
 			}
 		}
 		data[id].summary = reportData;
+
+		console.dir(reportData);
 	}
 
 	function SaveRecord(id, record, reportData) {

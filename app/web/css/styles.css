@@ -34,4 +34,10 @@ body {
 .tableSubHeader th {
   background-color: #eeeeee; }
 
+.center {
+  text-align: center; }
+
+.right {
+  text-align: right; }
+
 /*# sourceMappingURL=styles.css.map */
