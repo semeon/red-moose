@@ -50,7 +50,7 @@ export function ReportController(dataSource, type, conf) {
 
 			case "byDay":
 				ReactDOM.render(
-					<ByDayReportView data={data} report={data.id} config={config}/>,
+					<ByDayReportView data={data} config={config}/>,
 					document.getElementById(mountNodeId)
 				);
 			break;
