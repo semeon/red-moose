@@ -16,7 +16,9 @@ body {
 #main-wrapper {
   background-color: white;
   padding-top: 20px;
-  border-radius: 5px; }
+  padding-bottom: 40px;
+  border-radius: 5px;
+  margin-bottom: 40px; }
 
 .overflowScroll {
   overflow: auto; }

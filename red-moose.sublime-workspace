@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"text",
+				"text-align"
+			],
+			[
 				"data",
 				"dataModel"
 			],
@@ -51,23 +55,7 @@
 			"file": "app/web/index.html",
 			"settings":
 			{
-				"buffer_size": 3891,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/sass/main.scss",
-			"settings":
-			{
-				"buffer_size": 472,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/sass/navBar.scss",
-			"settings":
-			{
-				"buffer_size": 572,
+				"buffer_size": 3266,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +63,7 @@
 			"file": "app/web/js/config/config.js",
 			"settings":
 			{
-				"buffer_size": 1103,
+				"buffer_size": 2027,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +71,7 @@
 			"file": "app/web/js/model/dataModel.js",
 			"settings":
 			{
-				"buffer_size": 4414,
+				"buffer_size": 5650,
 				"line_ending": "Unix"
 			}
 		},
@@ -91,15 +79,39 @@
 			"file": "app/web/js/app.js",
 			"settings":
 			{
-				"buffer_size": 1372,
+				"buffer_size": 1380,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/web/js/ui/uiController.js",
+			"file": "app/web/js/reports/reportController.js",
 			"settings":
 			{
-				"buffer_size": 1121,
+				"buffer_size": 1940,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/web/js/reports/components/workTypesReport/workTypesReportView.jsx",
+			"settings":
+			{
+				"buffer_size": 2153,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/web/js/reports/components/workTypesReport/workTypesReportTable.jsx",
+			"settings":
+			{
+				"buffer_size": 1288,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/web/js/reports/components/workTypesReport/workTypesReportChart.jsx",
+			"settings":
+			{
+				"buffer_size": 944,
 				"line_ending": "Unix"
 			}
 		}
@@ -224,24 +236,38 @@
 		"/Users/semeon/XZProjects/red-moose/app/sass",
 		"/Users/semeon/XZProjects/red-moose/app/web",
 		"/Users/semeon/XZProjects/red-moose/app/web/css",
+		"/Users/semeon/XZProjects/red-moose/app/web/data",
 		"/Users/semeon/XZProjects/red-moose/app/web/js",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/model",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/workTypesReport",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/ui",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components/reportNavigation",
 		"/Users/semeon/XZProjects/red-moose/app/web/libs"
 	],
 	"file_history":
 	[
-		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/reportController.js",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components/reportNavigation.jsx",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/errorView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/workTypesReport/workTypesReportTable.jsx",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/rawReportView.jsx",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/overviewReportView.jsx",
-		"/Users/semeon/XZProjects/red-moose/app/sass/navBar.scss",
-		"/Users/semeon/XZProjects/red-moose/app/sass/reportNav.scss",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReportView.jsx",
 		"/Users/semeon/XZProjects/red-moose/app/sass/main.scss",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport/byDayReportView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport/tableHeader.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport/teamTableBody.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/data/2015-11-17.csv",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/reportController.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/uiController.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components/reportNavigation/reportNavigation.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components/reportNavigation/reportTypeTab.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components/reportNavigation.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReportView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/teamTableBody.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/sass/navBar.scss",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/errorView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/overviewReportView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/sass/reportNav.scss",
 		"/Users/semeon/XZProjects/red-moose/app/sass/palette.sass",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/main.js",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/csv/csvController.js",
@@ -351,16 +377,7 @@
 		"/Users/semeon/Applications/Wineskin/DeusEx.app/Contents/Resources/drive_c/GOG Games/Deus Ex GOTY/System/User.ini",
 		"/Users/semeon/Applications/Wineskin/DeusEx.app/Contents/Resources/drive_c/GOG Games/Deus Ex GOTY/System/DeusEx.ini",
 		"/Users/semeon/Applications/Wineskin/DeusEx.app/Contents/Resources/drive_c/GOG Games/Deus Ex GOTY/System/Default.ini",
-		"/Users/semeon/Applications/Wineskin/DeusEx.app/Contents/Resources/drive_c/GOG Games/Deus Ex GOTY/System/DefUser.ini",
-		"/Users/semeon/Applications/Wineskin/SteamWin.app/Contents/Resources/drive_c/users/Wineskin/AppData/LocalLow/N_Fusion Interactive/Deus Ex_ The Fall/PlayerPrefs.txt",
-		"/Users/semeon/Desktop/iframe.html",
-		"/Users/semeon/Google Drive/#pm-group/PM Knowledge Base/PM Functions MindMap.txt",
-		"/Users/semeon/Google Drive/#pm-group/PM Knowledge Base/PM FUNCTIONS.txt",
-		"/Users/semeon/Google Drive/#pm-group/PM Knowledge Base/PM Functions MindMap.gdoc",
-		"/Users/semeon/Desktop/PM FUNCTIONS.txt",
-		"/Users/semeon/Desktop/PM FUNCTIONS",
-		"/PM FUNCTIONS",
-		"/Users/semeon/Desktop/MBO_ticket_2478739"
+		"/Users/semeon/Applications/Wineskin/DeusEx.app/Contents/Resources/drive_c/GOG Games/Deus Ex GOTY/System/DefUser.ini"
 	],
 	"find":
 	{
@@ -379,6 +396,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"byTeamDay",
+			"dev",
+			"conf",
 			"currentViewController",
 			"dataRecords",
 			"dataSummary",
@@ -557,15 +577,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3891,
+						"buffer_size": 3266,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								523,
-								523
+								2619,
+								2619
 							]
 						],
 						"settings":
@@ -575,113 +595,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/sass/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 472,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								361,
-								361
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/sass/navBar.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 572,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								572,
-								572
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/web/js/config/config.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1103,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								699,
-								678
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 43.0,
+						"translation.y": 772.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/web/js/model/dataModel.js",
+					"buffer": 1,
+					"file": "app/web/js/config/config.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4414,
+						"buffer_size": 2027,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								944,
-								918
+								1471,
+								1471
 							]
 						],
 						"settings":
@@ -690,27 +624,56 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 486.0,
+						"translation.y": 315.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/web/js/app.js",
+					"buffer": 2,
+					"file": "app/web/js/model/dataModel.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1372,
+						"buffer_size": 5650,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1142,
-								1142
+								1875,
+								1875
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 878.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/web/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								752,
+								752
 							]
 						],
 						"settings":
@@ -718,27 +681,27 @@
 							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 170.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/web/js/ui/uiController.js",
+					"buffer": 4,
+					"file": "app/web/js/reports/reportController.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1121,
+						"buffer_size": 1940,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								386,
-								386
+								1287,
+								1287
 							]
 						],
 						"settings":
@@ -747,7 +710,97 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 583.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/web/js/reports/components/workTypesReport/workTypesReportView.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								852,
+								852
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 266.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/web/js/reports/components/workTypesReport/workTypesReportTable.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1288,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								228,
+								228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 104.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/web/js/reports/components/workTypesReport/workTypesReportChart.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 944,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								808,
+								173
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -2151,7 +2204,7 @@
 		"selected_items":
 		[
 		],
-		"width": 918.0
+		"width": 457.0
 	},
 	"selected_group": 0,
 	"settings":
