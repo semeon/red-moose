@@ -1,4 +1,4 @@
-import {OverviewReportView} 	from "/js/reports/components/overviewReportView.jsx";
+import {OverviewReportView} 	from "/js/reports/components/overviewReport/overviewReportView.jsx";
 import {ByDayReportView} 		from "/js/reports/components/byDayReport/byDayReportView.jsx";
 import {WorkTypesReportView} 	from "/js/reports/components/workTypesReport/workTypesReportView.jsx";
 
