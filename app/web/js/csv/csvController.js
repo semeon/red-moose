@@ -1,15 +1,21 @@
 export function CsvController() {
 
-	var filePath;
+	var filePath = "";
+	var onLoadCallback = {};
 
-	this.init = function(path) {
+	this.init = function(path, callback) {
 		filePath = path;
+		onLoadCallback = callback;
 	}
 
 	this.parseFiles = function(fileNames, callback) {
 		for (var i=0; i< fileNames.length; i++) {
-			ParseCsvFile(fileNames[i], callback);
+			ParseCsvFile(fileNames[i]);
 		}
+	}
+
+	this.parseFile = function(fileName, callback) {
+		ParseCsvFile(fileName, callback);
 	}
 
 	// Private

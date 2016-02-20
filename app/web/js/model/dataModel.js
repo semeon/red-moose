@@ -8,13 +8,16 @@ export function DataModel() {
 	var dataIds = [];
 	var data = {};
 
-	this.init = function(conf) {
+	var csvController = {};
+
+	this.init = function(conf, csvCont) {
 		config = conf;
+		csvController = csvCont;
 		for (var i=0; i<config.getCsvFileNames().length; i++) {
 			var id = config.getCsvFileNames()[i];
 			dataIds.push(id);
 			data[id] = {};
-			data[id].status = "pending";
+			data[id].status = "empty";
 			data[id].id = id;
 			data[id].summary = {};
 			data[id].records = [];
@@ -24,6 +27,23 @@ export function DataModel() {
 			data[id].meta.teams = config.getSubteamNames();
 			data[id].meta.teamMembers = {};
 		}
+
+		console.dir("Data init is done:");
+		console.dir(data);
+	}
+
+
+	this.loadData = function(id, callback) {
+
+		function OnCsvLoad(id, result) {
+			console.dir(">>> MODEL: End loading, ID: " + id + ", callback:  " + callback);
+			self.saveReportData(id, result.data);
+			if (callback) callback();
+		}
+
+		data[id].status = "loading";
+		console.dir("<<< MODEL: Start loading, ID: " + id);
+		csvController.parseFile(id, OnCsvLoad);
 	}
 
 	this.getData = function(id) {

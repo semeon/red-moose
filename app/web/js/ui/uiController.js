@@ -1,13 +1,19 @@
+import {ReportController} from "/js/reports/reportController.js";
 import {ReportNavigation} from "/js/ui/components/reportNavigation/reportNavigation.jsx";
 
-export function UiController(config, a, rc) {
+
+export function UiController(a, config) {
 	var self = this;
-	var app = a;
-	var dataSourceIDs = config.getCsvFileNames();
-	var reportController = rc;
 	var reportNavNodeId = "report-nav";
+	var app = a;
+
+	var reportController = new ReportController(app.getDataSource(), config.getDefaultReportType(), config);
 
 	this.renderReportNavigation = function() {
+		var dataSourceIDs = config.getCsvFileNames();
+
+		var dataSourceId = app.getDataSource().id;
+
 		ReactDOM.unmountComponentAtNode(document.getElementById(reportNavNodeId));
 		ReactDOM.render(
 		  <ReportNavigation 
@@ -17,7 +23,9 @@ export function UiController(config, a, rc) {
 		);
 	}
 
-	this.renderReport = function() {
+	this.renderReport = function(data, type) {
+		if (data) reportController.setDataSource(data);
+		if (type) reportController.setType(type);
 		reportController.render();
 	}
 
@@ -30,7 +38,7 @@ export function UiController(config, a, rc) {
 
 	function SwitchToSource(id) {
 		console.dir("SwitchToSource called with param: " + id);
-		app.selectDataSource(id);
+		app.changeDataSource(id);
 		reportController
 		self.renderReportNavigation();
 		self.renderReport();

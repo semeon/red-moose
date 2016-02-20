@@ -4,6 +4,7 @@ import {WorkTypesReportView} 	from "/js/reports/components/workTypesReport/workT
 
 import {RawReportView} 		from "/js/reports/components/rawReportView.jsx";
 import {ErrorMessage} 		from "/js/reports/components/errorView.jsx";
+import {LoadingView} 		from "/js/reports/components/loadingView.jsx";
 
 export function ReportController(dataSource, type, conf) {
 	var self = this;
@@ -15,6 +16,7 @@ export function ReportController(dataSource, type, conf) {
 
 	this.render = function() {
 		console.dir("Render Report called: " + reportType + " for " + data.id);
+		console.dir(data);
 		RenderReport(reportType);
 	}
 
@@ -36,10 +38,9 @@ export function ReportController(dataSource, type, conf) {
 		data = ds;
 	}
 
-
-
 	function RenderReport(type) {
-		if (data.status!="loaded") type = "error"; 
+		if (data.status != "loaded") type = "error"; 
+		if (data.status == "loading") type = "loading"; 
 		switch(type) {
 			case "overview":
 				ReactDOM.render(
@@ -77,6 +78,14 @@ export function ReportController(dataSource, type, conf) {
 				console.dir("Data Error:");
 				console.dir(data);
 			break;
+
+			case "loading":
+				ReactDOM.render(
+					<LoadingView report={data.id}/>,
+					document.getElementById(mountNodeId)
+				);
+			break;
+
 
 			default:
 				console.dir("ERROR");

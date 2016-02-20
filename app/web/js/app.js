@@ -2,8 +2,6 @@ import {Config} from "/js/config/config.js";
 import {CsvController} from "/js/csv/csvController.js";
 import {DataModel} from "/js/model/dataModel.js";
 import {UiController} from "/js/ui/uiController.js";
-import {ReportController} from "/js/reports/reportController.js";
-
 
 export var app = new App();
 
@@ -16,35 +14,39 @@ function App() {
 	var selectedDataSource = {};
 
 	var uiController = {};
-	var reportController = {};
 	
 	this.init = function() {
-		dataModel.init(config);
-		selectedDataSource = dataModel.getData(config.getDefaultDataSourceID());
-		reportController = new ReportController(selectedDataSource, config.getDefaultReportType(), config);
-		uiController = new UiController(config, app, reportController);
 		csvController.init(config.getCsvFilePath());
+		dataModel.init(config, csvController);
+		selectedDataSource = dataModel.getData(config.getDefaultDataSourceID());
+		uiController = new UiController(app, config);
 	}
-
 
 	this.start = function() {
+		dataModel.loadData(config.getDefaultDataSourceID(), RenderReport);
 		uiController.renderReportNavigation();
-		csvController.parseFiles(config.getCsvFileNames(), onCsvLoad);
+		uiController.renderReport(selectedDataSource, config.getDefaultReportType());
 	}
 
-	this.selectDataSource = function(id) {
+	this.changeDataSource = function(id) {
 		selectedDataSource = dataModel.getData(id);
-		reportController.setDataSource(selectedDataSource);
+		if (selectedDataSource.status == "loaded") {
+			uiController.renderReport(selectedDataSource, null);
+
+		} else {
+			dataModel.loadData(id, RenderReport);
+		}
+	}
+
+	this.getDataSource = function() {
+		return selectedDataSource;
 	}
 
 	// Private
-	function onCsvLoad(id, result) {
-		console.dir("== onCsvLoad == " + id);
-		dataModel.saveReportData(id, result.data);
-		if (id == config.getDefaultDataSourceID()) {
-			uiController.renderReport();
-		}
+	function RenderReport() {
+		uiController.renderReport(selectedDataSource, null);
 	}
+
 }
 
 
