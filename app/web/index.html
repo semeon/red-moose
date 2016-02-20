@@ -6,10 +6,10 @@
   <title>Red Moose</title>
   <!--
   <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" type="text/css" />
-  <link rel="stylesheet" href="libs/font-awesome/font-awesome.min.css">
   -->
-  <link rel="stylesheet" href="libs/bootstrap/css/flatly/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css" type="text/css" />
+
   <link rel="stylesheet" href="css/styles.css" type="text/css" />
 
 </head>
@@ -75,20 +75,25 @@
 
 
   <!-- General Libs 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment-with-locales.min.js"></script>
   -->
-  <script src="libs/jquery/jquery.min.js"></script>
-  <script src="libs/bootstrap/js/bootstrap.min.js" type="text/javascript"  charset="utf-8"></script>
-  <script src="libs/stringjs/string.min.js"></script>
-  <script src="libs/momentsjs/moment.min.js"></script>
-  <script src="libs/chartjs/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="https://cdn.rawgit.com/jprichardson/string.js/master/dist/string.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+
   <script src="libs/papaparse/papaparse.min.js"></script>
-  <script src="libs/systemjs/system.js"></script>
 
   <!-- React 0.14 
   -->
-  <script src="libs/reactjs/react.min.js"></script>
-  <script src="libs/reactjs/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.min.js"></script>
 
+
+
+  <script src="libs/systemjs/system.js"></script>
   <script>
     // set our baseURL reference path
     System.config({
@@ -96,7 +101,7 @@
       transpiler: 'babel',
       babelOptions: {},
       map: {
-        babel: 'libs/babel_5.8.34/browser.min.js'
+        babel: 'https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js'
       }
     });
 
