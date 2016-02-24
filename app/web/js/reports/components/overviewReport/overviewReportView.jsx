@@ -127,14 +127,7 @@ export var OverviewReportView = React.createClass({
         </div>
 
       </div>
-
-
-			<h3>Report: {this.props.report}</h3>
-			<div className="jumbotron">
-				<h1>Overview</h1>
-				<p>for {this.props.report}</p>
-				<p>Coming soon...</p>
-			</div>			
+	
 		</div>
     );
   }

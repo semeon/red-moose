@@ -179,6 +179,9 @@ export function DataModel() {
 
 		type = recTicketType;
 
+		if ( recTicketType == "Epic" ) type = "Story";
+
+
 		if ( recTicketType == "Task" ) {
 
 			if( S(title).contains("Testing Automation") ) {
