@@ -1,3 +1,4 @@
+import {ReportHeader}  from "/js/reports/components/reportHeader.jsx";
 import {ByDayReportTeableHeader} from "/js/reports/components/byDayReport/tableHeader.jsx";
 import {ByDayReportTeamTableBody} from "/js/reports/components/byDayReport/teamTableBody.jsx";
 
@@ -23,7 +24,9 @@ export var ByDayReportView = React.createClass({
     
     return (
       <div class="container-fluid">
-        <h3>Report: {this.props.data.id}</h3>
+        
+        <ReportHeader data={this.props.data} />
+        
         <div className="table-responsive">
           <table className="table table-condensed table-bordered">
             <ByDayReportTeableHeader data={this.props.data} />

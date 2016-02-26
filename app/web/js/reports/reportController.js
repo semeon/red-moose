@@ -65,7 +65,7 @@ export function ReportController(dataSource, type, conf) {
 
 			case "raw":
 				ReactDOM.render(
-					<RawReportView records={data.records} report={data.id}/>,
+					<RawReportView data={data} records={data.records} report={data.id}/>,
 					document.getElementById(mountNodeId)
 				);
 			break;

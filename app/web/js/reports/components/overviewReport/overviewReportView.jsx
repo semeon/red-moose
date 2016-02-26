@@ -1,3 +1,6 @@
+import {ReportHeader}  from "/js/reports/components/reportHeader.jsx";
+
+
 export var OverviewReportView = React.createClass({
 
   getInitialState: function() {
@@ -11,6 +14,8 @@ export var OverviewReportView = React.createClass({
   render: function() {
     return (
 		<div className="container-fluid">
+
+      <ReportHeader data={this.props.data} />
 
       <div className="row">
 

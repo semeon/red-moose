@@ -1,3 +1,5 @@
+import {ReportHeader}  from "/js/reports/components/reportHeader.jsx";
+
 export var RawReportView = React.createClass({
 
   getInitialState: function() {
@@ -27,7 +29,9 @@ export var RawReportView = React.createClass({
     });
     return (
     	<div>
-	    	<h3>Report: {this.props.report}</h3>
+	    	
+	    	<ReportHeader data={this.props.data} />
+	    	
 	    	<div className="table-responsive">
 		      <table className="table table-condensed table-bordered">
 		        <thead>

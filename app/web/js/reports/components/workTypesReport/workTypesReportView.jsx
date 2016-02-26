@@ -1,3 +1,4 @@
+import {ReportHeader}          from "/js/reports/components/reportHeader.jsx";
 import {WorkTypesReportTable}  from "/js/reports/components/workTypesReport/workTypesReportTable.jsx";
 import {WorkTypesReportChart}  from "/js/reports/components/workTypesReport/workTypesReportChart.jsx";
 
@@ -30,7 +31,9 @@ export var WorkTypesReportView = React.createClass({
    
     return (
       <div>
-        <h3>Report: {this.props.data.id}</h3>
+        
+        <ReportHeader data={this.props.data} />
+
         <div className="row">
           <div className="table-responsive col-md-4">
             <WorkTypesReportTable  
