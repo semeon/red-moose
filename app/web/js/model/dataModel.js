@@ -119,7 +119,6 @@ export function DataModel() {
 		dataRecord.workType = DefineWorkType(record);
 
 
-
 		if(!reportData.byPerson[dataRecord.user]) reportData.byPerson[dataRecord.user] = 0;
 		
 		if(!reportData.byTeam[dataRecord.team]) reportData.byTeam[dataRecord.team] = 0;

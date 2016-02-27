@@ -42,4 +42,7 @@ body {
 .right {
   text-align: right; }
 
+.indent20 {
+  padding-left: 20px !important; }
+
 /*# sourceMappingURL=styles.css.map */
