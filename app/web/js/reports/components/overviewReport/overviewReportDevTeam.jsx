@@ -23,12 +23,12 @@ export var OverviewReportView = React.createClass({
         Dev Team, mh
         QA Team, mh
         Design Team, mh
-        QA/Dev team members ratio, %
-        QA/Dev hours ratio, %
-        Average Dev hours, mh
-        Average Dev hours/day, mh
-        Average QA hours, mh
-        Average QA hours/day, mh
+      QA/Dev team members ratio, %
+      QA/Dev hours ratio, %
+      Average Dev hours, mh
+      Average Dev hours/day, mh
+      Average QA hours, mh
+      Average QA hours/day, mh
       Most hours logged by one person, mh
       Person logged most hours
       Stories and Imporvements ratio, %
@@ -47,20 +47,7 @@ export var OverviewReportView = React.createClass({
     var qaHours = data.summary.byTeam["QA"].toFixed(0);
     var uiHours = data.summary.byTeam["UX/UI"].toFixed(0);
 
-    var devQaHours = Number(devHours) + Number(qaHours);
-    devQaHours = devQaHours.toFixed(0);
-
-    var qaToDevEfforts = qaHours / devHours;
-    qaToDevEfforts = qaToDevEfforts.toFixed(2);
-
-
-    var devTeamSize = data.meta.teamMembers["Dev"].length;
-    var qaTeamSize = data.meta.teamMembers["QA"].length;
-    var qaToDevSize = qaTeamSize / devTeamSize;
-    qaToDevSize = qaToDevSize.toFixed(2);
-
-
-
+    var devTeamSize = data.meta.teamMembers["Dev"].length-1;
 
 
     return (
@@ -97,51 +84,24 @@ export var OverviewReportView = React.createClass({
           <table className="table table-condensed table-bordered">
             <thead>
               <tr className="tableHeader">
-                <th colSpan="2">Dev &amp; QA only</th>
+                <th colSpan="2">General</th>
               </tr>            
             </thead>
             <tboby>
               <tr>
+                <th>Sprint Length, workdays</th>
+                <td className="right">{days}</td>
+              </tr>
+              <tr>
                 <th>Total Effort, mh</th>
-                <td className="right">{devQaHours}</td>
+                <td className="right">{totalHours}</td>
               </tr>
             </tboby>
-            <tboby>
-              <tr className="tableSubHeader">
-                <th colSpan="2">Team</th>
-              </tr>
-
-              <tr>
-                <td><span className="indent20">Size</span></td>
-                <td className="right">{Number(devTeamSize) + Number(qaTeamSize) }</td>
-              </tr>
-
-              <tr>
-                <td><span className="indent20">Devs</span></td>
-                <td className="right">{devTeamSize}</td>
-              </tr>
-
-              <tr>
-                <td><span className="indent20">QAs</span></td>
-                <td className="right">{qaTeamSize}</td>
-              </tr>
 
 
-              <tr>
-                <td><span className="indent20">-? QAs/Devs Ratio</span></td>
-                <td className="right">{qaToDevSize}</td>
-              </tr>
-              <tr>
-                <td><span className="indent20">-? QAs/Devs Efforts Ratio</span></td>
-                <td className="right">{qaToDevEfforts}</td>
-              </tr>
-              <tr>
-                <td><span className="indent20">QAs</span></td>
-                <td className="right">{qaTeamSize}</td>
-              </tr>
-
-
-            </tboby>
+            <OverviewSubTeamRows data={data} team="Dev" />
+            <OverviewSubTeamRows data={data} team="QA" />
+            <OverviewSubTeamRows data={data} team="UX/UI" />
 
           </table>
         </div>

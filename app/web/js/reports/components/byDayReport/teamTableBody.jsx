@@ -58,7 +58,7 @@ export var ByDayReportTeamTableBody = React.createClass({
 
         var className = "";
         if (val >= 6) className = "success";
-        if (val > 8) className = "warning";
+        if (val >= 8) className = "warning";
         if (val >= 10) className = "danger";
 
         var node = <td className={className}><center><small>{val}</small></center></td>;

@@ -55,7 +55,7 @@
 			"file": "app/web/index.html",
 			"settings":
 			{
-				"buffer_size": 3421,
+				"buffer_size": 3511,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,15 +63,7 @@
 			"file": "app/web/js/config/config.js",
 			"settings":
 			{
-				"buffer_size": 2648,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/web/js/model/dataModel.js",
-			"settings":
-			{
-				"buffer_size": 5650,
+				"buffer_size": 2753,
 				"line_ending": "Unix"
 			}
 		},
@@ -79,31 +71,47 @@
 			"file": "app/web/js/app.js",
 			"settings":
 			{
-				"buffer_size": 1380,
+				"buffer_size": 1318,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/web/js/reports/reportController.js",
+			"file": "app/web/js/model/dataModel.js",
 			"settings":
 			{
-				"buffer_size": 1940,
+				"buffer_size": 6239,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/web/js/reports/components/workTypesReport/workTypesReportView.jsx",
+			"file": "app/web/js/reports/components/overviewReport/overviewReportView.jsx",
 			"settings":
 			{
-				"buffer_size": 1437,
+				"buffer_size": 4297,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/web/js/reports/components/byDayReport/byDayReportView.jsx",
+			"file": "app/sass/main.scss",
 			"settings":
 			{
-				"buffer_size": 1267,
+				"buffer_size": 743,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/web/js/reports/components/overviewReport/overviewSubTeamRows.jsx",
+			"settings":
+			{
+				"buffer_size": 1754,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/web/js/reports/components/overviewReport/overviewReportDevTeam.jsx",
+			"settings":
+			{
+				"buffer_size": 3149,
 				"line_ending": "Unix"
 			}
 		}
@@ -230,10 +238,13 @@
 		"/Users/semeon/XZProjects/red-moose/app/web/css",
 		"/Users/semeon/XZProjects/red-moose/app/web/data",
 		"/Users/semeon/XZProjects/red-moose/app/web/js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/config",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/csv",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/model",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/overviewReport",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/workTypesReport",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/ui",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components",
@@ -242,17 +253,23 @@
 	],
 	"file_history":
 	[
-		"/Users/semeon/XZProjects/red-moose/app/sass/main.scss",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/workTypesReport/workTypesReportView.jsx",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/workTypesReport/workTypesReportChart.jsx",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/workTypesReport/workTypesReportTable.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/sass/main.scss",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/overviewReport/overviewSubTeamRows.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/reportHeader.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport/teamTableBody.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/reportController.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/overviewReport/overviewSubTeamCard.jsx",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/rawReportView.jsx",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport/byDayReportView.jsx",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport/tableHeader.jsx",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport/teamTableBody.jsx",
-		"/Users/semeon/XZProjects/red-moose/app/web/data/2015-11-17.csv",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/reportController.js",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/uiController.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/workTypesReport/workTypesReportView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/loadingView.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/csv/csvController.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/main.js",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/workTypesReport/workTypesReportTable.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport/tableHeader.jsx",
+		"/Users/semeon/XZProjects/red-moose/app/web/data/2015-11-17.csv",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components/reportNavigation/reportNavigation.jsx",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components/reportNavigation/reportTypeTab.jsx",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/ui/components/reportNavigation.jsx",
@@ -263,8 +280,6 @@
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/overviewReportView.jsx",
 		"/Users/semeon/XZProjects/red-moose/app/sass/reportNav.scss",
 		"/Users/semeon/XZProjects/red-moose/app/sass/palette.sass",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/main.js",
-		"/Users/semeon/XZProjects/red-moose/app/web/js/csv/csvController.js",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/byDayReport.jsx",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/model/dataModel.js",
 		"/Users/semeon/XZProjects/red-moose/app/web/js/reports/components/reportNavigaton.jsx",
@@ -365,11 +380,7 @@
 		"/Users/semeon/Dev/Arduino/arduino-robot-alpha/source/RobotAlpha.ino",
 		"/Users/semeon/Dev/Arduino/arduino-robot-alpha/source/RobotAlpha",
 		"/Users/semeon/Desktop/YYogaPreview.xml",
-		"/Users/semeon/Desktop/FunctionDataSQL.txt",
-		"/Users/semeon/Desktop/FunctionDataAPI_XML.xml",
-		"/Users/semeon/Desktop/request.xml",
-		"/Users/semeon/Applications/Wineskin/DeusEx.app/Contents/Resources/drive_c/GOG Games/Deus Ex GOTY/System/User.ini",
-		"/Users/semeon/Applications/Wineskin/DeusEx.app/Contents/Resources/drive_c/GOG Games/Deus Ex GOTY/System/DeusEx.ini"
+		"/Users/semeon/Desktop/FunctionDataSQL.txt"
 	],
 	"find":
 	{
@@ -560,7 +571,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -569,15 +580,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3421,
+						"buffer_size": 3511,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1423,
-								1423
+								326,
+								329
 							]
 						],
 						"settings":
@@ -590,7 +601,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -599,15 +610,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2648,
+						"buffer_size": 2753,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2282,
-								2282
+								221,
+								221
 							]
 						],
 						"settings":
@@ -616,27 +627,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 971.0,
+						"translation.y": 653.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/web/js/model/dataModel.js",
+					"file": "app/web/js/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5650,
+						"buffer_size": 1318,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1875,
-								1875
+								1309,
+								1309
 							]
 						],
 						"settings":
@@ -645,7 +656,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 878.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
@@ -653,19 +664,19 @@
 				},
 				{
 					"buffer": 3,
-					"file": "app/web/js/app.js",
+					"file": "app/web/js/model/dataModel.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1380,
+						"buffer_size": 6239,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								752,
-								752
+								5880,
+								5880
 							]
 						],
 						"settings":
@@ -674,86 +685,86 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 105.0,
+						"translation.y": 2586.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/web/js/reports/components/overviewReport/overviewReportView.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								723,
+								796
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 250.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/web/js/reports/reportController.js",
-					"semi_transient": false,
+					"buffer": 5,
+					"file": "app/sass/main.scss",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1940,
+						"buffer_size": 743,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1287,
-								1287
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 492.0,
+						"translation.y": 104.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/web/js/reports/components/workTypesReport/workTypesReportView.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1437,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								876,
-								876
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSX/JSX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 155.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "app/web/js/reports/components/byDayReport/byDayReportView.jsx",
+					"file": "app/web/js/reports/components/overviewReport/overviewSubTeamRows.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1267,
+						"buffer_size": 1754,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								692,
-								692
+								1690,
+								1690
 							]
 						],
 						"settings":
@@ -763,10 +774,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 309.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/web/js/reports/components/overviewReport/overviewReportDevTeam.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								79,
+								79
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 148.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

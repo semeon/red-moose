@@ -179,6 +179,7 @@ export function DataModel() {
 		type = recTicketType;
 
 		if ( recTicketType == "Epic" ) type = "Story";
+		if ( recTicketType == "Sub-task" ) type = "Story";
 
 
 		if ( recTicketType == "Task" ) {

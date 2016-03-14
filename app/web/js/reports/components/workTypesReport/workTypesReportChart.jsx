@@ -24,7 +24,8 @@ export var WorkTypesReportChart = React.createClass({
     }
 
     var containerWidth = $("#"+this.state.canvasId).parent().width();
-    $("#"+this.state.canvasId).width(containerWidth);
+    // $("#"+this.state.canvasId).width(containerWidth);
+    // $("#"+this.state.canvasId).width(600);
 
     console.dir(">>> containerWidth: " + containerWidth);
 
@@ -66,7 +67,7 @@ export var WorkTypesReportChart = React.createClass({
     var self = this;
    
     return (
-      <canvas id={this.state.canvasId} ></canvas>
+      <canvas id={this.state.canvasId} height="320"></canvas>
     );
   }
 });

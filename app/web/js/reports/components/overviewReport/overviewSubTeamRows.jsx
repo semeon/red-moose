@@ -21,6 +21,9 @@ export var OverviewSubTeamRows = React.createClass({
     var teamHours = data.summary.byTeam[team].toFixed(0);
     var teamSize = data.meta.teamMembers[team].length;
 
+    var teamHoursPerDay = teamHours / days;
+    teamHoursPerDay = teamHoursPerDay.toFixed(1);
+
     var contributors = 0;
 
     for (var i=0; i < data.meta.teamMembers[team].length; i++) {
@@ -51,9 +54,14 @@ export var OverviewSubTeamRows = React.createClass({
           <td className="right">{contributors}</td>
         </tr>
         <tr>
-          <td><span className="indent20">Average Hours</span></td>
+          <td><span className="indent20">Average Hours per Person</span></td>
           <td className="right">{averageHours}</td>
         </tr>            
+        <tr>
+          <td><span className="indent20">Average Hours per Day</span></td>
+          <td className="right">{teamHoursPerDay}</td>
+        </tr>            
+
       </tboby>
     );
   }

@@ -5,6 +5,7 @@ export function Config() {
 	csvReports.push("2015-11-17.csv");
 	csvReports.push("2015-12-01.csv");
 	csvReports.push("2016-02-15.csv");
+	csvReports.push("2016-02-29.csv");
 
 	var csvFilePath = "data/";
 	var projectId = "Ratchet Health";
