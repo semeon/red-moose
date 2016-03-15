@@ -16,7 +16,7 @@ export function ReportController(dataSource, type, conf) {
 
 	this.render = function() {
 		console.dir("Render Report called: " + reportType + " for " + data.id);
-		// console.dir(data);
+		console.dir(data);
 		RenderReport(reportType);
 	}
 
