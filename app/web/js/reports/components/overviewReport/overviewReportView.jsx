@@ -42,17 +42,14 @@ export var OverviewReportView = React.createClass({
 
 
     var days = data.meta.dates.length-1;
-    var totalHours = data.summary.total.toFixed(0);
+    var totalHours = data.summary.total;
     var devHours = data.summary.byTeam["Dev"].toFixed(0);
     var qaHours = data.summary.byTeam["QA"].toFixed(0);
     var uiHours = data.summary.byTeam["UX/UI"].toFixed(0);
 
-    var devQaHours = Number(devHours) + Number(qaHours);
-    devQaHours = devQaHours.toFixed(0);
-
-    var qaToDevEfforts = qaHours / devHours;
-    qaToDevEfforts = qaToDevEfforts.toFixed(2);
-
+    var devQaHours = data.summary.devQaHours;
+    var valueHours = data.summary.valueHours;
+    var valueRatio = data.summary.valueRatio;
 
     var devTeamSize = data.meta.teamMembers["Dev"].length;
     var qaTeamSize = data.meta.teamMembers["QA"].length;
@@ -88,6 +85,7 @@ export var OverviewReportView = React.createClass({
 
             <OverviewSubTeamRows data={data} team="Dev" />
             <OverviewSubTeamRows data={data} team="QA" />
+            <OverviewSubTeamRows data={data} team="Ops" />
             <OverviewSubTeamRows data={data} team="UX/UI" />
 
           </table>
@@ -126,20 +124,26 @@ export var OverviewReportView = React.createClass({
                 <td className="right">{qaTeamSize}</td>
               </tr>
 
-
-              <tr>
-                <td><span className="indent20">-? QAs/Devs Ratio</span></td>
-                <td className="right">{qaToDevSize}</td>
+              <tr className="tableSubHeader">
+                <th colSpan="2">Efforts, mh</th>
               </tr>
               <tr>
-                <td><span className="indent20">-? QAs/Devs Efforts Ratio</span></td>
-                <td className="right">{qaToDevEfforts}</td>
+                <td><span className="indent20">Product Value</span></td>
+                <td className="right">{valueHours}</td>
               </tr>
               <tr>
-                <td><span className="indent20">QAs</span></td>
-                <td className="right">{qaTeamSize}</td>
+                <td><span className="indent20">Testing Automation Hours</span></td>
+                <td className="right">{data.summary.byType["Testing Automation"].toFixed(0)}</td>
               </tr>
 
+
+              <tr className="tableSubHeader">
+                <th colSpan="2">Efforts, %</th>
+              </tr>
+              <tr>
+                <td><span className="indent20">Product Value</span></td>
+                <td className="right">{valueRatio}%</td>
+              </tr>
 
             </tboby>
 

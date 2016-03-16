@@ -15,10 +15,11 @@ export var OverviewSubTeamRows = React.createClass({
     var self = this;
     var data = this.props.data;
     var team = this.props.team;
-    // var totalHours = data.summary.total.toFixed(0);
-
     var days = data.meta.dates.length-1;
-    var teamHours = data.summary.byTeam[team].toFixed(0);
+    var teamHours = data.summary.byTeam[team];
+    if(!teamHours) return ( null );
+    teamHours = teamHours.toFixed(0);
+
     var teamSize = data.meta.teamMembers[team].length;
 
     var teamHoursPerDay = teamHours / days;

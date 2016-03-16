@@ -23,7 +23,13 @@ export function Config() {
 
 	var reportTypes = ["overview", "byDay", "workTypes", "raw"];
 
-	var subteamNames = ["Dev", "QA", "UX/UI", "Other"];
+	var subteamNames = ["Dev", "QA", "Ops", "UX/UI", "Other"];
+	var subteams = {};
+	subteams["Dev"] = ["Albert Zhang", "Charles Chen", "Colin Chen", "Dennis Yan", "Michael Zhao", "Sky Wang", "Thomas Cai"];
+	subteams["QA"] = ["Lilith Zhang", "Sandy Chen", "Edith Sun"];
+	subteams["Ops"] = ["Shawn MacIntyre"];
+	subteams["UX/UI"] = ["Claire Lu"];
+
 
 	var workTypes = [	"Story", 
 						"Improvement", 
@@ -50,11 +56,6 @@ export function Config() {
 	workTypesColour["Overhead"] = "#FF8A65";
 
 
-	var subteams = {};
-	subteams["Dev"] = ["Albert Zhang", "Charles Chen", "Colin Chen", "Dennis Yan", "Michael Zhao", "Sky Wang", "Thomas Cai"];
-	subteams["QA"] = ["Lilith Zhang", "Sandy Chen", "Edith Sun"];
-	subteams["Ops"] = ["Shawn MacIntyre"];
-	subteams["UX/UI"] = ["Claire Lu"];
 
 	this.defineTeamByUser = function(user) {
 		var team = "Other";

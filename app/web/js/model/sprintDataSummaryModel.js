@@ -14,6 +14,11 @@ export function SprintDataSummaryModel(conf) {
 		summary.byType = {};
 		summary.byDayPerson = {};
 		summary.byPersonDay = {};
+
+		summary.devQaHours = 0;
+
+		summary.devQaHours = 0;
+		summary.valueRatio = 0;
 	}
 
 	this.getData = function() {
@@ -55,5 +60,43 @@ export function SprintDataSummaryModel(conf) {
 			summary.byType[dataRecord.workType] += dataRecord.timeLogged;
 			summary.byDayPerson[dataRecord.date][dataRecord.user] += dataRecord.timeLogged;
 			summary.byPersonDay[dataRecord.user][dataRecord.date] += dataRecord.timeLogged;
+	}
+
+	this.finalize = function() {
+
+		var digits = 0;
+
+		summary.total = Number(summary.total.toFixed(digits));
+
+		if (summary.total > 0) {
+			summary.devQaHours = summary.byTeam["Dev"] + summary.byTeam["QA"];
+			summary.devQaHours = Number(summary.devQaHours.toFixed(digits));
+
+			summary.valueHours = Number(summary.byType["Story"]) + Number(summary.byType["Improvement"]);
+			summary.valueHours = Number(summary.valueHours.toFixed(digits))
+
+			console.log("summary.valueHours: " + summary.valueHours);
+			console.log("Story: " + summary.byType["Story"]);
+			console.log("Improvement: " + summary.byType["Improvement"]);
+
+			summary.valueRatio = 100 * (summary.valueHours / summary.total);
+			summary.valueRatio = Number(summary.valueRatio.toFixed(0))
+
+			console.log("valueRatio: " + summary.valueRatio);
+
+
+		}
+
+
+
+      // Stories and Imporvements ratio, %
+      // Bugs and Tech tasks ratio, %
+      // Regression testing, %
+      // Testing Automation, %
+      // Overheads ratio, %
+      // Regression testing, mh
+      // Testing Automation, mh
+
+
 	}
 }

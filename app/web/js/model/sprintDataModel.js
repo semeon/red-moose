@@ -75,6 +75,7 @@ export function SprintDataModel(conf) {
 				SaveMeta(dataRecord);
 			}
 		}
+		summaryObj.finalize();
 		sprintData.summary = summaryObj.getData();
 		sprintData.meta.dates.sort();
 		sprintData.meta.users.sort();
