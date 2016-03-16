@@ -44,6 +44,7 @@ export function Config() {
 	workTypesColour["Bug"] = "#FF6F00";
 	workTypesColour["Regression Testing"] = "#BCAAA4";
 	workTypesColour["Testing Automation"] = "#00BCD4";
+	workTypesColour["Operations"] = "#0097A7";
 	workTypesColour["Release Preparation"] = "#BDBDBD";
 	workTypesColour["Design Task"] = "#90CAF9";
 	workTypesColour["Overhead"] = "#FF8A65";
@@ -52,6 +53,7 @@ export function Config() {
 	var subteams = {};
 	subteams["Dev"] = ["Albert Zhang", "Charles Chen", "Colin Chen", "Dennis Yan", "Michael Zhao", "Sky Wang", "Thomas Cai"];
 	subteams["QA"] = ["Lilith Zhang", "Sandy Chen", "Edith Sun"];
+	subteams["Ops"] = ["Shawn MacIntyre"];
 	subteams["UX/UI"] = ["Claire Lu"];
 
 	this.defineTeamByUser = function(user) {

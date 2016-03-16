@@ -1,9 +1,12 @@
+import {SprintDataSummaryModel} from "/js/model/sprintDataSummaryModel.js";
+
 
 export function SprintDataModel(conf) {
 
 	var self = this;
 	var config = conf;
 	var sprintData = {};
+	var summaryObject = {};
 
 	this.init = function(id) {
 		sprintData.status = "empty";
@@ -24,104 +27,76 @@ export function SprintDataModel(conf) {
 		return sprintData;
 	}
 
+	// this.getSprintDataRecords = function() {
+	// 	return sprintData.records;
+	// }
+
+	// this.getSprintDataSummary = function() {
+	// 	return sprintData.summary;
+	// }
+
+	// this.getSprintDataMeta = function() {
+	// 	return sprintData.meta;
+	// }
+
+
 
 	this.setStatusToLoading = function() {
 		sprintData.status = "loading";
 	}
 
 	this.saveData = function(sprintRawData) {
-		UpdateSummary(sprintRawData);
+		ParseData(sprintRawData);
 		if (sprintData.summary) sprintData.status = "loaded";
 	}
 
 	// Private Members
 
-	function UpdateSummary(sprintRawData) {
+	function ParseData(sprintRawData) {
 
-		var summary = {};
-		summary.total = 0;
-		summary.byPerson = {};
-		summary.byTeam = {};
-		summary.byTeamDay = {};
-		summary.byTeamType = {};
-		summary.byDay = {};
-		summary.byType = {};
-		summary.byDayPerson = {};
-		summary.byPersonDay = {};
-
+		// var summary = {};
+		var summaryObj = new SprintDataSummaryModel(config);
+		summaryObj.init();
 
 		for (var i=0; i<sprintRawData.length-1; i++) { 
-			var record = sprintRawData[i];
+			var rawRecord = sprintRawData[i];
 			// Check record's relevance
-			var recProject = record[config.getFieldMap().project];
+			var recProject = rawRecord[config.getFieldMap().project];
 			if (recProject == config.getProjectId()) {
-				SaveRecord(record, summary);
+
+				// Save raw data
+				var dataRecord = CreateDataRecord(rawRecord);
+				sprintData.records.push(dataRecord);
+
+
+				// Update Summary
+				summaryObj.update(dataRecord);
+
+				SaveMeta(dataRecord);
 			}
 		}
-
-		sprintData.summary = summary;
-
-		console.dir(summary);
-	}
-
-
-
-	function SaveRecord(record, reportData) {
-
-		if(!sprintData.records) sprintData.records = [];
-		var dataRecord = {};
-		dataRecord.project = record[config.getFieldMap().project];;
-		dataRecord.ticketType = record[config.getFieldMap().ticketType];
-		dataRecord.ticketId = record[config.getFieldMap().ticketId];
-		dataRecord.ticketTitle = record[config.getFieldMap().ticketTitle];
-		dataRecord.dateTime = record[config.getFieldMap().dateTime];
-		dataRecord.date = moment(dataRecord.dateTime, "YYYY-MM-DD HH:mm").format("YYYY-MM-DD");
-		dataRecord.user = record[config.getFieldMap().user];
-		dataRecord.team = config.defineTeamByUser(dataRecord.user);
-		dataRecord.timeLogged = record[config.getFieldMap().timeLogged];
-		dataRecord.workType = DefineWorkType(record);
-
-
-		if(!reportData.byPerson[dataRecord.user]) reportData.byPerson[dataRecord.user] = 0;
-		
-		if(!reportData.byTeam[dataRecord.team]) reportData.byTeam[dataRecord.team] = 0;
-
-		if(!reportData.byTeamDay[dataRecord.team]) reportData.byTeamDay[dataRecord.team] = {};
-		if(!reportData.byTeamDay[dataRecord.team][dataRecord.date]) reportData.byTeamDay[dataRecord.team][dataRecord.date] = 0;
-
-		if(!reportData.byTeamType[dataRecord.team]) reportData.byTeamType[dataRecord.team] = {};
-		if(!reportData.byTeamType[dataRecord.team][dataRecord.workType]) reportData.byTeamType[dataRecord.team][dataRecord.workType] = 0;
-
-
-		if(!reportData.byDay[dataRecord.date]) reportData.byDay[dataRecord.date] = 0;
-		
-		if(!reportData.byType[dataRecord.workType]) reportData.byType[dataRecord.workType] = 0;
-
-		if(!reportData.byDayPerson[dataRecord.date]) reportData.byDayPerson[dataRecord.date] = {};
-		if(!reportData.byDayPerson[dataRecord.date][dataRecord.user]) reportData.byDayPerson[dataRecord.date][dataRecord.user] = 0;
-
-		if(!reportData.byPersonDay[dataRecord.user]) reportData.byPersonDay[dataRecord.user] = {};
-		if(!reportData.byPersonDay[dataRecord.user][dataRecord.date]) reportData.byPersonDay[dataRecord.user][dataRecord.date] = 0;
-
-		// Same Meta
-		SaveMeta(dataRecord);
+		sprintData.summary = summaryObj.getData();
 		sprintData.meta.dates.sort();
-		sprintData.meta.users.sort();		
-
-		// Save Data Record
-		sprintData.records.push(dataRecord);
-
-		// Save Summary
-		reportData.total += dataRecord.timeLogged;
-		reportData.byPerson[dataRecord.user] += dataRecord.timeLogged;
-		reportData.byTeam[dataRecord.team] += dataRecord.timeLogged;
-		reportData.byTeamDay[dataRecord.team][dataRecord.date] += dataRecord.timeLogged;
-		reportData.byTeamType[dataRecord.team][dataRecord.workType] += dataRecord.timeLogged;
-		reportData.byDay[dataRecord.date] += dataRecord.timeLogged;
-		reportData.byType[dataRecord.workType] += dataRecord.timeLogged;
-		reportData.byDayPerson[dataRecord.date][dataRecord.user] += dataRecord.timeLogged;
-		reportData.byPersonDay[dataRecord.user][dataRecord.date] += dataRecord.timeLogged;
+		sprintData.meta.users.sort();
+		console.dir(sprintData.summary);
 	}
+
+
+	function CreateDataRecord(rawRecord) {
+		var dataRecord = {};
+		dataRecord.project = rawRecord[config.getFieldMap().project];;
+		dataRecord.ticketType = rawRecord[config.getFieldMap().ticketType];
+		dataRecord.ticketId = rawRecord[config.getFieldMap().ticketId];
+		dataRecord.ticketTitle = rawRecord[config.getFieldMap().ticketTitle];
+		dataRecord.dateTime = rawRecord[config.getFieldMap().dateTime];
+		dataRecord.date = moment(dataRecord.dateTime, "YYYY-MM-DD HH:mm").format("YYYY-MM-DD");
+		dataRecord.user = rawRecord[config.getFieldMap().user];
+		dataRecord.team = config.defineTeamByUser(dataRecord.user);
+		dataRecord.timeLogged = rawRecord[config.getFieldMap().timeLogged];
+		dataRecord.workType = DefineWorkType(rawRecord);
+		return dataRecord;
+	}
+
 
 	function SaveMeta(dataRecord) {
 		var user = dataRecord.user;
@@ -137,30 +112,20 @@ export function SprintDataModel(conf) {
 
 	function DefineWorkType(record) {
 		var type = "";
-
 		var recTicketType = record[config.getFieldMap().ticketType];
 		var title = record[config.getFieldMap().ticketTitle];
 
 		type = recTicketType;
 
-		if ( recTicketType == "Epic" ) type = "Story";
-		if ( recTicketType == "Sub-task" ) type = "Story";
-
+		if ( recTicketType == "Epic" ) 								type = "Story";
+		if ( recTicketType == "Sub-task" ) 							type = "Story";
 
 		if ( recTicketType == "Task" ) {
-
-			if( S(title).contains("Testing Automation") ) {
-				type = "Testing Automation";
-
-			} else if ( S(title).contains("Regression Testing") ) {
-				type = "Regression Testing";
-
-			} else if ( S(title).contains("Release Preparation") ) {
-				type = "Release Preparation";
-			}
+			if( S(title).contains("Testing Automation") ) 			type = "Testing Automation";
+			else if ( S(title).contains("[Operations]") ) 			type = "Operations";
+			else if ( S(title).contains("Regression Testing") ) 	type = "Regression Testing";
+			else if ( S(title).contains("Release Preparation") ) 	type = "Release Preparation";
 		} 
 		return type;
 	}
-
-
 }
